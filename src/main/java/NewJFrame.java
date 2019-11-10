@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JPanel;
 /**
  *
  * @author rushi
@@ -13,7 +16,19 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    
+    Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
     public NewJFrame() {
+        this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 750, 450, this);
+                }
+                });
+        setResizable(false);
         initComponents();
     }
 
@@ -43,16 +58,16 @@ public class NewJFrame extends javax.swing.JFrame {
         create_account_label.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         create_account_label.setText("Create Account");
 
-        set_emailid_label.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        set_emailid_label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         set_emailid_label.setText("Email ID");
 
-        set_username_label.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        set_username_label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         set_username_label.setText("Username");
 
-        set_password_label.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        set_password_label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         set_password_label.setText("Password");
 
-        set_phone_number_label.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        set_phone_number_label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         set_phone_number_label.setText("Phone Number");
 
         set_username_field.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +114,7 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(181, 181, 181)
                 .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
                 .addComponent(register_button)
                 .addGap(207, 207, 207))
         );
