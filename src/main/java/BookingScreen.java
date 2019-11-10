@@ -42,8 +42,9 @@ public class BookingScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        dest_butt_group = new javax.swing.ButtonGroup();
         jRadioButton12 = new javax.swing.JRadioButton();
+        loc_butt_group = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         coupon_code_label = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -94,8 +95,10 @@ public class BookingScreen extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Pick-Up Location");
 
+        loc_butt_group.add(loc_a_pick);
         loc_a_pick.setText("Location A");
 
+        loc_butt_group.add(loc_b_pick);
         loc_b_pick.setText("Location B");
         loc_b_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,10 +106,13 @@ public class BookingScreen extends javax.swing.JFrame {
             }
         });
 
+        loc_butt_group.add(loc_c_pick);
         loc_c_pick.setText("Location C");
 
+        loc_butt_group.add(loc_d_pick);
         loc_d_pick.setText("Location D");
 
+        loc_butt_group.add(loc_e_pick);
         loc_e_pick.setText("Location E");
         loc_e_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,15 +120,19 @@ public class BookingScreen extends javax.swing.JFrame {
             }
         });
 
+        loc_butt_group.add(loc_f_pick);
         loc_f_pick.setText("Location F");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Drop Location");
 
+        dest_butt_group.add(loc_a_drop);
         loc_a_drop.setText("Location A");
 
+        dest_butt_group.add(loc_b_drop);
         loc_b_drop.setText("Location B");
 
+        dest_butt_group.add(loc_c_drop);
         loc_c_drop.setText("Location C");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -135,10 +145,13 @@ public class BookingScreen extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Estimated Fare:");
 
+        dest_butt_group.add(loc_d_drop);
         loc_d_drop.setText("Location D");
 
+        dest_butt_group.add(loc_e_drop);
         loc_e_drop.setText("Location E");
 
+        dest_butt_group.add(loc_f_drop);
         loc_f_drop.setText("Location F");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,8 +313,8 @@ public class BookingScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton book_button;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel coupon_code_label;
+    private javax.swing.ButtonGroup dest_butt_group;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -317,6 +330,7 @@ public class BookingScreen extends javax.swing.JFrame {
     private javax.swing.JRadioButton loc_a_pick;
     private javax.swing.JRadioButton loc_b_drop;
     private javax.swing.JRadioButton loc_b_pick;
+    private javax.swing.ButtonGroup loc_butt_group;
     private javax.swing.JRadioButton loc_c_drop;
     private javax.swing.JRadioButton loc_c_pick;
     private javax.swing.JRadioButton loc_d_drop;
