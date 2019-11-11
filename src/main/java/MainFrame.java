@@ -16,9 +16,23 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    String user_id; 
     Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
    
     public MainFrame() {
+        this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 743, 445, this);
+                }
+                });
+        setResizable(false);
+        initComponents();
+    }
+    public MainFrame(String user_id) {
         this.setContentPane(new JPanel()
                 {
                     @Override
@@ -89,7 +103,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(112, 112, 112)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -106,7 +120,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addGap(108, 108, 108)
@@ -121,6 +135,9 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        AddMoney am = new AddMoney(user_id);
+        am.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

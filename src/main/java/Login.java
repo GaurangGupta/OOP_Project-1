@@ -2,7 +2,9 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.sql.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,6 +34,7 @@ public class Login extends javax.swing.JFrame {
                 }
                 });
         setResizable(false);
+       
         initComponents();
     }
 
@@ -161,7 +164,7 @@ public class Login extends javax.swing.JFrame {
     private void create_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_account_buttonActionPerformed
         // TODO add your handling code here:
         dispose();
-        NewJFrame create_account = new NewJFrame();
+        CreateAccount create_account = new CreateAccount();
         create_account.setVisible(true);
     }//GEN-LAST:event_create_account_buttonActionPerformed
 
@@ -177,7 +180,48 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_exit_buttonActionPerformed
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-        // TODO add your handling code here:
+        if (password_field.getText().equals("") || username_textfield.getText().equals(""))
+		{
+            JOptionPane.showMessageDialog(null,"Username and Password field cannot be empty");
+        }
+        else 
+		{
+			int p=0, q = 0;
+            String tpass = password_field.getText();
+            String tname = username_textfield.getText();
+            try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_new","root","root");
+            Statement myStmt = myConn.createStatement();
+            ResultSet myRs = myStmt.executeQuery("select * from userdata");
+            while(myRs.next())
+			{
+				if(myRs.getString("id").equals(tname))
+				{
+					if(myRs.getString("password").equals(tpass))
+					{
+						p=1;
+						dispose();
+						MainFrame main_fr = new MainFrame(tname);
+						main_fr.setVisible(true);
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null,"Username and Password do not match");
+                                                q = 1;
+                                        }
+				}
+            }
+			if(p == 0 && q == 0)
+			{
+				JOptionPane.showMessageDialog(null,"There is no such user");
+			}
+		}
+            catch(Exception e){
+                System.out.println(e);
+            }
+            }
+            
     }//GEN-LAST:event_login_buttonActionPerformed
 
     /**
