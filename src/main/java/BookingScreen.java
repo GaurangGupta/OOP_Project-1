@@ -102,6 +102,11 @@ public class BookingScreen extends javax.swing.JFrame {
 
         loc_butt_group.add(loc_a_pick);
         loc_a_pick.setText("Location A");
+        loc_a_pick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_a_pickActionPerformed(evt);
+            }
+        });
 
         loc_butt_group.add(loc_b_pick);
         loc_b_pick.setText("Location B");
@@ -113,9 +118,19 @@ public class BookingScreen extends javax.swing.JFrame {
 
         loc_butt_group.add(loc_c_pick);
         loc_c_pick.setText("Location C");
+        loc_c_pick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_c_pickActionPerformed(evt);
+            }
+        });
 
         loc_butt_group.add(loc_d_pick);
         loc_d_pick.setText("Location D");
+        loc_d_pick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_d_pickActionPerformed(evt);
+            }
+        });
 
         loc_butt_group.add(loc_e_pick);
         loc_e_pick.setText("Location E");
@@ -127,6 +142,11 @@ public class BookingScreen extends javax.swing.JFrame {
 
         loc_butt_group.add(loc_f_pick);
         loc_f_pick.setText("Location F");
+        loc_f_pick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_f_pickActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Drop Location");
@@ -281,6 +301,15 @@ public class BookingScreen extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        loc_a_drop.setVisible(false);
+        loc_b_drop.setVisible(false);
+        loc_c_drop.setVisible(false);
+        loc_d_drop.setVisible(false);
+        loc_e_drop.setVisible(false);
+        loc_f_drop.setVisible(false);
+        loc_g_drop.setVisible(false);
+        loc_h_drop.setVisible(false);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -313,23 +342,98 @@ public class BookingScreen extends javax.swing.JFrame {
 
     private void loc_b_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_b_pickActionPerformed
         // TODO add your handling code here:
+        loc_a_drop.setVisible(true);
+        loc_c_drop.setVisible(true);
+        loc_d_drop.setVisible(true);
+        loc_e_drop.setVisible(true);
+        loc_f_drop.setVisible(true);
+        loc_g_drop.setVisible(true);
+        loc_h_drop.setVisible(true);
     }//GEN-LAST:event_loc_b_pickActionPerformed
 
     private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_jRadioButton12ActionPerformed
 
     private void loc_e_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_e_pickActionPerformed
         // TODO add your handling code here:
+        loc_b_drop.setVisible(true);
+        loc_c_drop.setVisible(true);
+        loc_d_drop.setVisible(true);
+        loc_a_drop.setVisible(true);
+        loc_f_drop.setVisible(true);
+        loc_g_drop.setVisible(true);
+        loc_h_drop.setVisible(true);        
     }//GEN-LAST:event_loc_e_pickActionPerformed
 
     private void loc_g_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_g_pickActionPerformed
         // TODO add your handling code here:
+        loc_b_drop.setVisible(true);
+        loc_c_drop.setVisible(true);
+        loc_d_drop.setVisible(true);
+        loc_e_drop.setVisible(true);
+        loc_f_drop.setVisible(true);
+        loc_a_drop.setVisible(true);
+        loc_h_drop.setVisible(true);
     }//GEN-LAST:event_loc_g_pickActionPerformed
 
     private void loc_h_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_h_pickActionPerformed
         // TODO add your handling code here:
+        loc_b_drop.setVisible(true);
+        loc_c_drop.setVisible(true);
+        loc_d_drop.setVisible(true);
+        loc_e_drop.setVisible(true);
+        loc_f_drop.setVisible(true);
+        loc_g_drop.setVisible(true);
+        loc_a_drop.setVisible(true);
     }//GEN-LAST:event_loc_h_pickActionPerformed
+
+    private void loc_a_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_a_pickActionPerformed
+        // TODO add your handling code here:
+        loc_b_drop.setVisible(true);
+        loc_c_drop.setVisible(true);
+        loc_d_drop.setVisible(true);
+        loc_e_drop.setVisible(true);
+        loc_f_drop.setVisible(true);
+        loc_g_drop.setVisible(true);
+        loc_h_drop.setVisible(true);
+        
+        
+    }//GEN-LAST:event_loc_a_pickActionPerformed
+
+    private void loc_c_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_c_pickActionPerformed
+        // TODO add your handling code here:
+        loc_b_drop.setVisible(true);
+        loc_a_drop.setVisible(true);
+        loc_d_drop.setVisible(true);
+        loc_e_drop.setVisible(true);
+        loc_f_drop.setVisible(true);
+        loc_g_drop.setVisible(true);
+        loc_h_drop.setVisible(true);
+    }//GEN-LAST:event_loc_c_pickActionPerformed
+
+    private void loc_d_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_d_pickActionPerformed
+        // TODO add your handling code here:
+        loc_b_drop.setVisible(true);
+        loc_c_drop.setVisible(true);
+        loc_a_drop.setVisible(true);
+        loc_e_drop.setVisible(true);
+        loc_f_drop.setVisible(true);
+        loc_g_drop.setVisible(true);
+        loc_h_drop.setVisible(true);
+    }//GEN-LAST:event_loc_d_pickActionPerformed
+
+    private void loc_f_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_f_pickActionPerformed
+        // TODO add your handling code here:
+        loc_b_drop.setVisible(true);
+        loc_c_drop.setVisible(true);
+        loc_d_drop.setVisible(true);
+        loc_e_drop.setVisible(true);
+        loc_a_drop.setVisible(true);
+        loc_g_drop.setVisible(true);
+        loc_h_drop.setVisible(true);
+    }//GEN-LAST:event_loc_f_pickActionPerformed
 
     /**
      * @param args the command line arguments

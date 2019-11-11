@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="dest_butt_group">
     </Component>
@@ -193,6 +193,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location A"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_a_pickActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_b_pick">
       <Properties>
@@ -212,6 +215,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location C"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_c_pickActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_d_pick">
       <Properties>
@@ -220,6 +226,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location D"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_d_pickActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_e_pick">
       <Properties>
@@ -239,6 +248,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location F"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_f_pickActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -255,6 +267,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location A"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_a_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_b_drop">
       <Properties>
@@ -263,6 +278,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location B"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_b_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_c_drop">
       <Properties>
@@ -271,6 +289,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location C"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_c_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -305,6 +326,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location D"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_d_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_e_drop">
       <Properties>
@@ -313,6 +337,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location E"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_e_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_f_drop">
       <Properties>
@@ -321,6 +348,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location F"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_f_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_g_pick">
       <Properties>
@@ -351,6 +381,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location G"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_g_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_h_drop">
       <Properties>
@@ -359,6 +392,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location H"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_h_drop.setVisible(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
