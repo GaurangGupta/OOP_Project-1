@@ -71,6 +71,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        password_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password_fieldActionPerformed(evt);
+            }
+        });
+
         login_button.setText("Login");
         login_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,8 +183,25 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_exit_buttonActionPerformed
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-        // TODO add your handling code here:
+        try
+        {
+            String s=username.getText();
+            String t=password.getText();
+            if(s==NULL || t==NULL)
+            {
+                ;
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("A");
+        }
+    // TODO add your handling code here:
     }//GEN-LAST:event_login_buttonActionPerformed
+
+    private void password_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_fieldActionPerformed
 
     /**
      * @param args the command line arguments
