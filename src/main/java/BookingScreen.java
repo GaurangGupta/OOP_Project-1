@@ -47,6 +47,7 @@ public class BookingScreen extends javax.swing.JFrame {
         dest_butt_group = new javax.swing.ButtonGroup();
         jRadioButton12 = new javax.swing.JRadioButton();
         loc_butt_group = new javax.swing.ButtonGroup();
+        car_type_group = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         book_button = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -138,8 +139,10 @@ public class BookingScreen extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Ride Type");
 
+        car_type_group.add(car_mini);
         car_mini.setText("Mini");
 
+        car_type_group.add(car_suv);
         car_suv.setText("SUV");
 
         dest_butt_group.add(loc_d_drop);
@@ -285,13 +288,13 @@ public class BookingScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog (null,"Please select a pick-up location");
         }
         
-        else if(!loc_a_drop.isSelected()||!loc_b_drop.isSelected()||!loc_c_drop.isSelected()||!loc_d_drop.isSelected()||!loc_e_drop.isSelected()||!loc_f_drop.isSelected()||!loc_g_drop.isSelected()||!loc_h_drop.isSelected())
+        else if(!loc_a_drop.isSelected()&&!loc_b_drop.isSelected()&&!loc_c_drop.isSelected()&&!loc_d_drop.isSelected()&&!loc_e_drop.isSelected()&&!loc_f_drop.isSelected()&&!loc_g_drop.isSelected()&&!loc_h_drop.isSelected())
         {
         //displaying error if no drop is selected
             JOptionPane.showMessageDialog (null,"Please select a drop location");
         }
         
-        else if(!car_mini.isSelected()||!car_suv.isSelected())
+        else if(!car_mini.isSelected()&&!car_suv.isSelected())
         {
         //displaying error if no car is selected
             JOptionPane.showMessageDialog (null,"Please select a car type");
@@ -299,7 +302,7 @@ public class BookingScreen extends javax.swing.JFrame {
         
         else if(true)
         {
-            
+            String pickup,drop;
         } 
         
     }//GEN-LAST:event_book_buttonActionPerformed
@@ -363,6 +366,7 @@ public class BookingScreen extends javax.swing.JFrame {
     private javax.swing.JButton book_button;
     private javax.swing.JRadioButton car_mini;
     private javax.swing.JRadioButton car_suv;
+    private javax.swing.ButtonGroup car_type_group;
     private javax.swing.ButtonGroup dest_butt_group;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
