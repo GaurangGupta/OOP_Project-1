@@ -161,7 +161,7 @@ public class Login extends javax.swing.JFrame {
     private void create_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_account_buttonActionPerformed
         // TODO add your handling code here:
         dispose();
-        NewJFrame create_account = new NewJFrame();
+        CreateAccount create_account = new CreateAccount();
         create_account.setVisible(true);
     }//GEN-LAST:event_create_account_buttonActionPerformed
 
