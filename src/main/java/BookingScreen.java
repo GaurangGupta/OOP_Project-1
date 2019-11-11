@@ -206,7 +206,7 @@ public class BookingScreen extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(book_button)))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

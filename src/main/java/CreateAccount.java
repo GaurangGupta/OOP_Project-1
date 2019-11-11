@@ -6,19 +6,21 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
  * @author rushi
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class CreateAccount extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrame
+     * Creates new form CreateAccount
      */
     
     Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
-    public NewJFrame() {
+    public CreateAccount() {
         this.setContentPane(new JPanel()
                 {
                     @Override
@@ -52,6 +54,8 @@ public class NewJFrame extends javax.swing.JFrame {
         set_phone_number_field = new javax.swing.JFormattedTextField();
         back_button = new javax.swing.JButton();
         register_button = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        set_name = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +90,14 @@ public class NewJFrame extends javax.swing.JFrame {
 
         register_button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         register_button.setText("Register");
+        register_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                register_buttonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,18 +115,20 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(set_emailid_label)
                                 .addComponent(set_username_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(set_password_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(set_phone_number_label))
+                            .addComponent(set_phone_number_label)
+                            .addComponent(jLabel1))
                         .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(set_emailid_field, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                             .addComponent(set_username_field)
                             .addComponent(set_password_field)
-                            .addComponent(set_phone_number_field))))
+                            .addComponent(set_phone_number_field)
+                            .addComponent(set_name, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(181, 181, 181)
                 .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                 .addComponent(register_button)
                 .addGap(207, 207, 207))
         );
@@ -123,23 +137,27 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(create_account_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(set_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set_emailid_label)
                     .addComponent(set_emailid_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set_username_label)
                     .addComponent(set_username_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set_password_label)
                     .addComponent(set_password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set_phone_number_label)
                     .addComponent(set_phone_number_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back_button)
                     .addComponent(register_button))
@@ -160,6 +178,77 @@ public class NewJFrame extends javax.swing.JFrame {
         login_page.setVisible(true);
     }//GEN-LAST:event_back_buttonActionPerformed
 
+    private void register_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_buttonActionPerformed
+        if (set_emailid_field.getText().equals("") || set_username_field.getText().equals("") || set_password_field.getPassword().equals("") || set_phone_number_field.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter valid credentials");
+        }
+        else {
+            String name = set_name.getText();
+            String phone_number = set_phone_number_field.getText();
+            String email_id = set_emailid_field.getText();
+            String user_name =  set_username_field.getText();
+            String password = set_password_field.getText();
+            int balance = 0;    
+            
+            //checking whether it's a valid email address
+            int counter = 0;
+            for(int i = 0; i<email_id.length();i++){
+                if(email_id.charAt(i) == '@' && counter == 0){
+                    counter = 1;
+                }
+                if(email_id.charAt(i) == '.' && counter == 1){
+                    counter = 2;
+                }
+            }
+            if(counter != 2){
+                JOptionPane.showMessageDialog(null,"Please enter a valid email address");
+            }
+            
+            //check for 10 digit phone number 
+            int counter2 = 0;
+            if(phone_number.length() == 10){
+                counter2 = 1;
+            }
+            
+            //sql queries
+            if(counter == 2 && counter2 == 1){
+                try{
+//                    Class.forName("com.mysql.jdbc.Driver"); 
+
+                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_new","root","root");
+                    
+                    String query = " insert into userdata (name, id, phone, email, password, balance)"+ " values (?, ?, ?, ?, ?, ?)";
+                    
+                    PreparedStatement myStmt = myConn.prepareStatement(query);
+                    
+                    myStmt.setString(1,name);
+                    myStmt.setString(2,user_name);
+                    myStmt.setString(3,phone_number);
+                    myStmt.setString(4,email_id);
+                    myStmt.setString(5,password);
+                    myStmt.setInt(6,balance);
+                    
+                    myStmt.execute();
+//                    ResultSet myRs = myStmt.executeQuery("select * from learner");
+        //            ResultSet myRs1 = myStmt.executeQuery("insert into learner values(2,002,'Gaurang Gupta')");
+
+
+//                    while(myRs.next()){
+//                        System.out.println(myRs.getString("name"));
+//                    }
+                    myConn.close();
+                    dispose();
+                    Login login_page = new Login();
+                    login_page.setVisible(true);
+                }
+                catch(Exception e){
+                    System.out.println(e);
+                }
+            }
+            
+       }            // TODO add your handling code here:
+    }//GEN-LAST:event_register_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -177,20 +266,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new CreateAccount().setVisible(true);
             }
         });
     }
@@ -198,9 +288,11 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_button;
     private javax.swing.JLabel create_account_label;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton register_button;
     private javax.swing.JFormattedTextField set_emailid_field;
     private javax.swing.JLabel set_emailid_label;
+    private javax.swing.JFormattedTextField set_name;
     private javax.swing.JPasswordField set_password_field;
     private javax.swing.JLabel set_password_label;
     private javax.swing.JFormattedTextField set_phone_number_field;
