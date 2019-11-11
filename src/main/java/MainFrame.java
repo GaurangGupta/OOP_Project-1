@@ -6,7 +6,9 @@
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.sql.*;
 /**
  *
  * @author rushi
@@ -17,6 +19,7 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     String user_id; 
+    int balance;
     Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
    
     public MainFrame() {
@@ -142,10 +145,40 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        BookingScreen book_cab = new BookingScreen();
-        book_cab.setVisible(true);
+        // fetch user_id's corresponding balance
+        try{
+            
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/school","root","root");
+            
+            Statement myStmt = myConn.createStatement();
+
+            ResultSet myRs = myStmt.executeQuery("select * from learner");
+                        
+            while(myRs.next()){
+                String id = myRs.getString("id");
+                if(user_id.equals(id)){
+                    balance = myRs.getInt("balance");
+                }
+            }
+            
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+        //check if balance is less than 300
+        if(balance < 300){
+            JOptionPane.showMessageDialog(null,"Please maintain sufficient funds before booking");
+            dispose();
+            AddMoney am = new AddMoney(user_id);
+            am.setVisible(true);
+        }
+        else{
+            dispose();
+            BookingScreen book_cab = new BookingScreen();
+            book_cab.setVisible(true);
+        }
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
