@@ -16,9 +16,23 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    String user_id; 
     Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
    
     public MainFrame() {
+        this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 743, 445, this);
+                }
+                });
+        setResizable(false);
+        initComponents();
+    }
+    public MainFrame(String user_id) {
         this.setContentPane(new JPanel()
                 {
                     @Override
@@ -121,6 +135,9 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        AddMoney am = new AddMoney(user_id);
+        am.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
