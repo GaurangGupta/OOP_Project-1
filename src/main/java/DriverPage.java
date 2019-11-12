@@ -1,3 +1,9 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -186,6 +192,31 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void confirm_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_bookingActionPerformed
         // TODO add your handling code here:
+        
+        // Change the driver status here to 1 and increase the number of trips and then continue
+        // Gaurang is adding the drivers ka refreshing algo here. So contact him for any problems;
+        int tot_trips=0;
+	try
+	{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+            Statement myStmt = myConn.createStatement();
+            ResultSet myRs = myStmt.executeQuery("select * from driver");
+            while(myRs.next())
+            {
+		tot_trips+=myRs.getInt("num_trips");
+            }
+            tot_trips-=150;
+            if(tot_trips%5==0)
+            {
+            	String upda="Update driver set cur_pos = initial_pos where status = 0 ";
+            	myStmt.executeUpdate(upda);
+            }
+	}
+        catch(Exception e)
+	{
+        System.out.println(e);
+	}
         dispose();
         TravelPage tp = new TravelPage();
         tp.setVisible(true);
