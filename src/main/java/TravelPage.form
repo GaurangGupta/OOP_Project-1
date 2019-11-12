@@ -23,18 +23,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-=======
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
->>>>>>> 4ee3da60e96902a2860afe3b2391f32f1e37a6ce
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -67,18 +57,6 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-<<<<<<< HEAD
-=======
-              <EmptySpace pref="24" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="prog_bar" min="-2" pref="327" max="-2" attributes="0"/>
-                  <Component id="from_in" min="-2" pref="107" max="-2" attributes="0"/>
-                  <Component id="to_in" min="-2" pref="107" max="-2" attributes="0"/>
-                  <Component id="time_el_in" min="-2" pref="107" max="-2" attributes="0"/>
-                  <Component id="time_rem_in" min="-2" pref="107" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
->>>>>>> 4ee3da60e96902a2860afe3b2391f32f1e37a6ce
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,7 +65,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="from" min="-2" max="-2" attributes="0"/>
@@ -108,31 +85,6 @@
                   <Component id="time_el_in" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-=======
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="from" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="from_in" min="-2" pref="19" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="to" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="to_in" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="62" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="time_elap" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="time_el_in" alignment="1" min="-2" pref="19" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="time_rem" min="-2" max="-2" attributes="0"/>
-                  <Component id="time_rem_in" min="-2" pref="19" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Component id="prog_bar" min="-2" pref="79" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
->>>>>>> 4ee3da60e96902a2860afe3b2391f32f1e37a6ce
           </Group>
       </Group>
     </DimensionLayout>
