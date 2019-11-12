@@ -266,8 +266,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location A"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_a_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_a_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_a_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_b_drop">
@@ -278,7 +281,7 @@
         <Property name="text" type="java.lang.String" value="Location B"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_b_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_b_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_c_drop">
@@ -289,7 +292,7 @@
         <Property name="text" type="java.lang.String" value="Location C"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_c_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_c_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -328,8 +331,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location D"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_d_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_d_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_d_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_e_drop">
@@ -340,7 +346,7 @@
         <Property name="text" type="java.lang.String" value="Location E"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_e_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_e_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_f_drop">
@@ -351,7 +357,7 @@
         <Property name="text" type="java.lang.String" value="Location F"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_f_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_f_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_g_pick">
@@ -384,7 +390,7 @@
         <Property name="text" type="java.lang.String" value="Location G"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_g_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_g_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_h_drop">
@@ -395,7 +401,7 @@
         <Property name="text" type="java.lang.String" value="Location H"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_h_drop.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_h_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
   </SubComponents>

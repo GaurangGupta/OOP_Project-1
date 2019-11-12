@@ -5,7 +5,12 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+<<<<<<< HEAD
+import java.sql.ResultSet;
+import java.sql.Statement;
+=======
 import javax.swing.JPanel;
+>>>>>>> 64a986f5e17f0bb9878fd1c9fce693dc04c5b706
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -65,6 +70,12 @@ public class AddMoney extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Enter Amount");
+
+        add_money.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_moneyActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Card Number");
@@ -138,14 +149,22 @@ public class AddMoney extends javax.swing.JFrame {
         try{
 //                    Class.forName("com.mysql.jdbc.Driver"); 
 
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                Statement myStt = myConn.createStatement();
+                ResultSet myRs = myStt.executeQuery("select balance from userdata where id = user_id");
+                //String phone_number = set_phone_number_field.getText();
+            
+                int cur=0;
+                if(myRs.next())
+                {
+                    cur=myRs.getInt("balance");
+                }
 
-                String query = "update userdata set num_points = ? where first_name = ?";
-
+                String query = "update userdata set balance = ? where id = ?";
                 PreparedStatement myStmt = myConn.prepareStatement(query);
-
-                myStmt.setInt(1,money);
-                myStmt.setString(2,user_name);
+                myStmt.setInt(1,money+cur);
+                myStmt.setString(2,user_id);
 
                 myStmt.execute();
 //                    ResultSet myRs = myStmt.executeQuery("select * from learner");
@@ -164,6 +183,10 @@ public class AddMoney extends javax.swing.JFrame {
                 System.out.println(e);
             }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void add_moneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_moneyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_moneyActionPerformed
 
     /**
      * @param args the command line arguments
