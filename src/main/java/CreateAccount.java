@@ -215,7 +215,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 try{
 //                    Class.forName("com.mysql.jdbc.Driver"); 
 
-                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_new","root","root");
+                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
                     
                     String query = " insert into userdata (name, id, phone, email, password, balance)"+ " values (?, ?, ?, ?, ?, ?)";
                     
