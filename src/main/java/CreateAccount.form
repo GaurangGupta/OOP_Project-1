@@ -49,15 +49,14 @@
                           <Component id="set_name" alignment="0" pref="98" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                      <Component id="back_button" min="-2" pref="69" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                      <Component id="register_button" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
-              <Component id="back_button" min="-2" pref="69" max="-2" attributes="0"/>
-              <EmptySpace pref="159" max="32767" attributes="0"/>
-              <Component id="register_button" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
+              <EmptySpace pref="205" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,12 +90,12 @@
                   <Component id="set_phone_number_label" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="set_phone_number_field" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="108" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="back_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="register_button" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

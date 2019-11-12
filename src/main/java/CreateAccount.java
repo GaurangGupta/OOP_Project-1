@@ -19,7 +19,7 @@ public class CreateAccount extends javax.swing.JFrame {
      * Creates new form CreateAccount
      */
     
-    Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
     public CreateAccount() {
         this.setContentPane(new JPanel()
                 {
@@ -27,7 +27,7 @@ public class CreateAccount extends javax.swing.JFrame {
                     public void paintComponent(Graphics g)
                 {
                     super.paintComponent(g);
-                    g.drawImage(img, 0, 0, 750, 450, this);
+                    g.drawImage(img, 0, 0, 700, 560, this);
                 }
                 });
         setResizable(false);
@@ -123,14 +123,13 @@ public class CreateAccount extends javax.swing.JFrame {
                             .addComponent(set_username_field)
                             .addComponent(set_password_field)
                             .addComponent(set_phone_number_field)
-                            .addComponent(set_name, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
-                .addComponent(register_button)
-                .addGap(207, 207, 207))
+                            .addComponent(set_name, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(175, 175, 175)
+                        .addComponent(register_button)))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,11 +156,11 @@ public class CreateAccount extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set_phone_number_label)
                     .addComponent(set_phone_number_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back_button)
                     .addComponent(register_button))
-                .addGap(30, 30, 30))
+                .addGap(81, 81, 81))
         );
 
         pack();
@@ -207,6 +206,7 @@ public class CreateAccount extends javax.swing.JFrame {
             //check for 10 digit phone number 
             int counter2 = 0;
             if(phone_number.length() == 10){
+                
                 counter2 = 1;
             }
             

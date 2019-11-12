@@ -47,6 +47,7 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="drop_loc_val" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
@@ -64,15 +65,44 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="226" max="32767" attributes="0"/>
+=======
+                  <Group type="102" attributes="0">
+                      <Component id="coupon_code" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel13" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="coupon_input" min="-2" pref="99" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="verify_code" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="268" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="final_fare" min="-2" pref="81" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel8" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" pref="48" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="confirm_booking" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+>>>>>>> 249d938a6541adac8dbb891c9559f2848b70edcb
                   </Group>
               </Group>
           </Group>
           <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
               <EmptySpace pref="251" max="32767" attributes="0"/>
               <Component id="page_name" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Component id="confirm_booking" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+=======
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
+>>>>>>> 249d938a6541adac8dbb891c9559f2848b70edcb
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,6 +137,7 @@
                   <Component id="verify_code" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="coupon_input" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <EmptySpace pref="38" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="final_fare" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -115,6 +146,16 @@
               <EmptySpace pref="24" max="32767" attributes="0"/>
               <Component id="confirm_booking" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+=======
+              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="final_fare" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="confirm_booking" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+>>>>>>> 249d938a6541adac8dbb891c9559f2848b70edcb
           </Group>
       </Group>
     </DimensionLayout>

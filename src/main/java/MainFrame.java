@@ -20,7 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     String user_id; 
     int balance;
-    Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
    
     public MainFrame() {
         this.setContentPane(new JPanel()
@@ -29,7 +29,7 @@ public class MainFrame extends javax.swing.JFrame {
                     public void paintComponent(Graphics g)
                 {
                     super.paintComponent(g);
-                    g.drawImage(img, 0, 0, 743, 445, this);
+                    g.drawImage(img, 0, 0, 700, 560, this);
                 }
                 });
         setResizable(false);
@@ -69,7 +69,7 @@ public class MainFrame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(734, 445));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
-        jLabel1.setText("CAB APP NAME HERE");
+        jLabel1.setText("ROAD RUNNER");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Current Balance: ");
@@ -99,23 +99,24 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jButton1)
-                .addGap(114, 114, 114)
-                .addComponent(book_cab)
-                .addGap(112, 112, 112)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(284, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(250, 250, 250))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(jButton1)
+                .addGap(111, 111, 111)
+                .addComponent(book_cab)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,15 +124,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(108, 108, 108)
+                .addComponent(jLabel3)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(book_cab)
                     .addComponent(jButton3))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addGap(155, 155, 155))
         );
 
         pack();
