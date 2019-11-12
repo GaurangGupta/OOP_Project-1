@@ -16,6 +16,10 @@ public class TravelPage extends javax.swing.JFrame {
     public TravelPage() {
         initComponents();
     }
+    
+     public TravelPage(String start, String drop, String dri_name, int duration, int fare) {
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

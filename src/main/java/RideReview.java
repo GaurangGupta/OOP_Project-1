@@ -16,6 +16,10 @@ public class RideReview extends javax.swing.JFrame {
     public RideReview() {
         initComponents();
     }
+    
+    public RideReview(String start, String drop, String dri_name, int duration, int fare) {
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

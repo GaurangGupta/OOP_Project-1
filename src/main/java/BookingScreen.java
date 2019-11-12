@@ -422,7 +422,7 @@ public class BookingScreen extends javax.swing.JFrame {
                 while(myRs.next())
                 {
                     if(Integer.parseInt(myRs.getString("sNo")) == pickupid){
-                        fare = 20 * Integer.parseInt(myRs.getString(drop_loc));
+                        fare = 10 * Integer.parseInt(myRs.getString(drop_loc));
                         pickup = myRs.getString("name");
                     }
                 }
