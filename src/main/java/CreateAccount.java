@@ -207,6 +207,7 @@ public class CreateAccount extends javax.swing.JFrame {
             //check for 10 digit phone number 
             int counter2 = 0;
             if(phone_number.length() == 10){
+                
                 counter2 = 1;
             }
             
