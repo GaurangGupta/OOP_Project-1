@@ -209,7 +209,7 @@ public class DriverPage extends javax.swing.JFrame {
             tot_trips-=150;
             if(tot_trips%5==0)
             {
-            	String upda="Update driver set cur_pos = initial_pos where status = 0 ";
+            	String upda="Update driver set cur_pos = initial_pos where cur_status = 0 ";
             	myStmt.executeUpdate(upda);
             }
 	}
