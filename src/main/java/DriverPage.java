@@ -22,6 +22,8 @@ public class DriverPage extends javax.swing.JFrame {
      * Creates new form DriverPage
      */
     public DriverPage(String pickup, String drop, int fare, String driver_name, float driver_rating) {
+
+        setResizable(false);
         initComponents();
     }
 
@@ -179,7 +181,7 @@ public class DriverPage extends javax.swing.JFrame {
                     .addComponent(verify_code)
                     .addComponent(jLabel13)
                     .addComponent(coupon_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(final_fare)
                     .addComponent(jLabel8)

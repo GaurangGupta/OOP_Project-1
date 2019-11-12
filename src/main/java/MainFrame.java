@@ -20,7 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     String user_id; 
     int balance;
-    Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
    
     public MainFrame() {
         this.setContentPane(new JPanel()
@@ -69,7 +69,7 @@ public class MainFrame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(734, 445));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
-        jLabel1.setText("CAB APP NAME HERE");
+        jLabel1.setText("ROAD RUNNER");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Current Balance: ");

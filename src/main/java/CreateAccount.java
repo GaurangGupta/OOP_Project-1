@@ -19,7 +19,7 @@ public class CreateAccount extends javax.swing.JFrame {
      * Creates new form CreateAccount
      */
     
-    Image img = Toolkit.getDefaultToolkit().getImage("F:\\image.jpeg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
     public CreateAccount() {
         this.setContentPane(new JPanel()
                 {
