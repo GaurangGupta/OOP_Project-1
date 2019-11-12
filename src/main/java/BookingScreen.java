@@ -441,7 +441,8 @@ public class BookingScreen extends javax.swing.JFrame {
             
             //retrieve values from locations database
             try{
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/locations","root","root");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/locations?characterEncoding=latin1","root","root");
                 Statement myStmt = myConn.createStatement();
                 ResultSet myRs = myStmt.executeQuery("select * from distances");
                 while(myRs.next())
@@ -459,7 +460,8 @@ public class BookingScreen extends javax.swing.JFrame {
             String temp_driver_name = "";
             float temp_rating = 0;
             try{
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
                 Statement myStmt = myConn.createStatement();
                 ResultSet myRs = myStmt.executeQuery("select * from driver");
 //                ResultSet myRs = myStmt.executeQuery("select max(rating) from driver where ");

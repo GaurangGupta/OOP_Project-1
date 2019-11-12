@@ -1,8 +1,6 @@
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,9 +13,9 @@ import java.sql.Statement;
  * @author rushi
  */
 public class DriverPage extends javax.swing.JFrame {
-    String pickup, drop, driver_name;
-    int fare;
-    float driver_rating;
+    String pickup_g, drop_g, driver_name_g;
+    int fare_g;
+    float driver_rating_g;
     /**
      * Creates new form DriverPage
      */
@@ -25,6 +23,25 @@ public class DriverPage extends javax.swing.JFrame {
 
         setResizable(false);
         initComponents();
+        final_fare_val.setFont(new java.awt.Font("Dialog", 1, 24));
+        final_fare_val.setText("" + fare + "");
+        fare_g = fare;
+        
+        pick_loc_val.setFont(new java.awt.Font("Dialog", 1, 24));
+        pick_loc_val.setText(pickup);
+        pickup_g = pickup;
+        
+        drop_loc_val.setFont(new java.awt.Font("Dialog", 1, 24));
+        drop_loc_val.setText(drop);
+        drop_g = drop;
+        
+        dri_name_val.setFont(new java.awt.Font("Dialog", 1, 24));
+        dri_name_val.setText(driver_name);
+        driver_name_g = driver_name;
+        
+        dri_rating_val.setFont(new java.awt.Font("Dialog", 1, 24));
+        dri_rating_val.setText(String.valueOf(driver_rating));
+        driver_rating_g = driver_rating;
     }
 
     /**
@@ -45,11 +62,11 @@ public class DriverPage extends javax.swing.JFrame {
         verify_code = new javax.swing.JButton();
         final_fare = new javax.swing.JLabel();
         confirm_booking = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        final_fare_val = new javax.swing.JLabel();
+        pick_loc_val = new javax.swing.JLabel();
+        drop_loc_val = new javax.swing.JLabel();
+        dri_name_val = new javax.swing.JLabel();
+        dri_rating_val = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,6 +93,11 @@ public class DriverPage extends javax.swing.JFrame {
         coupon_code.setText("Coupon Code:");
 
         verify_code.setText("Verify Code");
+        verify_code.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verify_codeActionPerformed(evt);
+            }
+        });
 
         final_fare.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         final_fare.setText("Final Fare:");
@@ -102,56 +124,51 @@ public class DriverPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(drop_loc)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(dri_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dri_rating, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pick_loc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(drop_loc)
+                            .addComponent(pick_loc))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pick_loc_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(246, 246, 246))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(confirm_booking)
+                                        .addComponent(verify_code))
+                                    .addGap(73, 73, 73)))
+                            .addComponent(drop_loc_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(coupon_code)
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(coupon_input, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(53, 53, 53)
-                                .addComponent(verify_code))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(118, 118, 118)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(99, 99, 99)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(coupon_code)
+                                    .addComponent(final_fare, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(coupon_input, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(final_fare_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(final_fare, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(220, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(246, 246, 246))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(confirm_booking)
-                        .addGap(73, 73, 73))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dri_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(dri_rating, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(59, 59, 59)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(dri_rating_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(dri_name_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addContainerGap(195, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,36 +176,43 @@ public class DriverPage extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pick_loc)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel2))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(drop_loc)
-                    .addComponent(jLabel10))
-                .addGap(44, 44, 44)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dri_name)
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dri_rating)
-                    .addComponent(jLabel12))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(pick_loc_val, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pick_loc, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(drop_loc_val, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drop_loc))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dri_name)
+                    .addComponent(dri_name_val, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(dri_rating))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(dri_rating_val, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(coupon_code)
                     .addComponent(verify_code)
                     .addComponent(jLabel13)
-                    .addComponent(coupon_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(final_fare)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel14))
-                .addGap(24, 24, 24)
-                .addComponent(confirm_booking)
-                .addGap(34, 34, 34))
+                    .addComponent(coupon_input, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addComponent(confirm_booking)
+                        .addGap(40, 40, 40))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(final_fare)
+                            .addComponent(final_fare_val, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -203,7 +227,7 @@ public class DriverPage extends javax.swing.JFrame {
 	try
 	{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from driver");
             while(myRs.next())
@@ -222,13 +246,54 @@ public class DriverPage extends javax.swing.JFrame {
         System.out.println(e);
 	}
         dispose();
-        TravelPage tp = new TravelPage();
+        TravelPage tp = new TravelPage(pickup_g,drop_g,driver_name_g,fare_g/10,fare_g);
         tp.setVisible(true);
     }//GEN-LAST:event_confirm_bookingActionPerformed
 
     private void coupon_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coupon_inputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_coupon_inputActionPerformed
+
+    private void verify_codeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verify_codeActionPerformed
+        // TODO add your handling code here:
+        String a = coupon_input.getText();
+        //JOptionPane.showMessageDialog (null,a);
+        String flag = "";
+        double fare_temp = fare_g;
+        //JOptionPane.showMessageDialog (null,String.valueOf(fare));
+//the value of fare is not being picked from the constructor method
+        
+        try
+        {
+            int p=0;
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coupon?characterEncoding=latin1","root","root");
+            Statement myStmt = myConn.createStatement();
+            ResultSet myRs = myStmt.executeQuery("select * from coup_details" );
+            while(myRs.next())
+            {
+                if(myRs.getString("code").equals(a))
+                {
+                    p++;
+                    double discount = myRs.getInt("value")/100.0;
+                    //JOptionPane.showMessageDialog (null,String.valueOf(discount));
+                    fare_temp = fare_temp * (1 - discount);
+                    //JOptionPane.showMessageDialog (null,String.valueOf(fare));
+                    final_fare_val.setFont(new java.awt.Font("Dialog", 1, 24));
+                    final_fare_val.setText("" + String.valueOf(fare_temp) + "");
+                }
+            }
+            if(p==0)
+            {
+                JOptionPane.showMessageDialog(null,"The given coupon does not exist");
+            }
+        }
+        
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_verify_codeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,19 +335,19 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JLabel coupon_code;
     private javax.swing.JTextField coupon_input;
     private javax.swing.JLabel dri_name;
+    private javax.swing.JLabel dri_name_val;
     private javax.swing.JLabel dri_rating;
+    private javax.swing.JLabel dri_rating_val;
     private javax.swing.JLabel drop_loc;
+    private javax.swing.JLabel drop_loc_val;
     private javax.swing.JLabel final_fare;
+    private javax.swing.JLabel final_fare_val;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel pick_loc;
+    private javax.swing.JLabel pick_loc_val;
     private javax.swing.JButton verify_code;
     // End of variables declaration//GEN-END:variables
 }

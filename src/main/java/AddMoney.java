@@ -5,12 +5,9 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-<<<<<<< HEAD
 import java.sql.ResultSet;
 import java.sql.Statement;
-=======
 import javax.swing.JPanel;
->>>>>>> 64a986f5e17f0bb9878fd1c9fce693dc04c5b706
 
 /*
  * To change this license header, choose License Headers in Project Properties.

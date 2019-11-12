@@ -23,32 +23,40 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="189" max="32767" attributes="0"/>
-              <Component id="prog_bar" min="-2" pref="327" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="time_elap" min="-2" pref="109" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="time_rem" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="to" min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="from" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="time_elap" min="-2" pref="127" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="time_el_in" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                              <Component id="time_rem" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <Component id="time_rem_in" min="-2" pref="107" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="to" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="from" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="from_in" pref="146" max="32767" attributes="0"/>
+                          <Component id="to_in" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,17 +65,26 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="from" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="to" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
-              <Component id="time_elap" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Component id="time_rem" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Component id="prog_bar" min="-2" pref="79" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="from" min="-2" max="-2" attributes="0"/>
+                  <Component id="from_in" min="-2" pref="42" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="to" min="-2" max="-2" attributes="0"/>
+                  <Component id="to_in" min="-2" pref="49" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="149" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="time_rem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="time_elap" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="time_rem_in" min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="time_el_in" min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,7 +101,7 @@
     <Component class="javax.swing.JLabel" name="from">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="1"/>
+          <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="From:"/>
       </Properties>
@@ -92,21 +109,15 @@
     <Component class="javax.swing.JLabel" name="to">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="1"/>
+          <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="To:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="prog_bar">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="prog_bar.setVisible(true);&#xa;prog_bar.setMinimum(0);&#xa;prog_bar.setMaximum(100);&#xa;/*&#xa;try{&#xa;    for(int x=0; x&lt;=100; x++)&#xa;    {&#xa;        Thread.sleep(150);&#xa;        prog_bar.setValue(x);&#xa;        prog_bar.setVisible(true);&#xa;        &#xa;    }&#xa;}&#xa;catch(Exception e)&#xa;{}&#xa;*/"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="time_elap">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="1"/>
+          <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Time Elapsed:"/>
       </Properties>
@@ -114,10 +125,18 @@
     <Component class="javax.swing.JLabel" name="time_rem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="1"/>
+          <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Time Remaining:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="from_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="to_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="time_el_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="time_rem_in">
     </Component>
   </SubComponents>
 </Form>

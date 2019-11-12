@@ -1,7 +1,7 @@
-
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.*;
@@ -67,18 +67,6 @@ public class Login extends javax.swing.JFrame {
 
         password_label.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         password_label.setText("Password");
-
-        username_textfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                username_textfieldActionPerformed(evt);
-            }
-        });
-
-        password_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                password_fieldActionPerformed(evt);
-            }
-        });
 
         login_button.setText("Login");
         login_button.addActionListener(new java.awt.event.ActionListener() {
@@ -235,7 +223,6 @@ public class Login extends javax.swing.JFrame {
             
     }//GEN-LAST:event_login_buttonActionPerformed
 
-<<<<<<< HEAD
      /**
 =======
     private void password_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_fieldActionPerformed
