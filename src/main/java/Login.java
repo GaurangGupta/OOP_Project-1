@@ -223,14 +223,17 @@ public class Login extends javax.swing.JFrame {
             
     }//GEN-LAST:event_login_buttonActionPerformed
 
+<<<<<<< HEAD
      /**
 =======
+=======
+>>>>>>> 4ee3da60e96902a2860afe3b2391f32f1e37a6ce
     private void password_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_fieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_password_fieldActionPerformed
 
     /**
->>>>>>> 249d938a6541adac8dbb891c9559f2848b70edcb
+
      * @param args the command line arguments
      */
     public static void main(String args[]) {

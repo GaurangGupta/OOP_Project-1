@@ -8,7 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ee3da60e96902a2860afe3b2391f32f1e37a6ce
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

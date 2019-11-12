@@ -55,17 +55,24 @@
                               <Component id="driver_name" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel10" min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="jLabel11" min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="drop_in" pref="103" max="32767" attributes="0"/>
+                                  <Component id="name_in" max="32767" attributes="0"/>
+                                  <Component id="start_in" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="fare_in" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="duration_in" min="-2" pref="106" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="303" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
@@ -89,27 +96,27 @@
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="starting_point" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="start_in" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dropping_point" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="drop_in" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="driver_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="name_in" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="driver_pre_rating" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fare_in" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="trip_duration" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="duration_in" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -125,7 +132,7 @@
                   <Component id="back_to_main" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <EmptySpace pref="95" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -168,7 +175,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Driver Rating:"/>
+        <Property name="text" type="java.lang.String" value="Fare:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="trip_duration">
@@ -233,16 +240,6 @@
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
-    </Component>
     <Component class="javax.swing.JButton" name="exit">
       <Properties>
         <Property name="text" type="java.lang.String" value="Exit"/>
@@ -258,6 +255,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="back_to_mainActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="start_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="drop_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="name_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="fare_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="duration_in">
     </Component>
   </SubComponents>
 </Form>
