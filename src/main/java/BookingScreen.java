@@ -20,7 +20,7 @@ public class BookingScreen extends javax.swing.JFrame {
      * Creates new form BookingScreen
      */
     
-    Image img = Toolkit.getDefaultToolkit().getImage("F:\\map.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg.jpg");
     public BookingScreen() {
         this.setContentPane(new JPanel()
                 {

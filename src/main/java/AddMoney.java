@@ -1,7 +1,11 @@
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,8 +22,18 @@ public class AddMoney extends javax.swing.JFrame {
     /**
      * Creates new form AddMoney
      */
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\bg1.jpg");
     String user_id;
     public AddMoney() {
+        this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 406, 345, this);
+                }
+                });
         setResizable(false);
         initComponents();
     }
@@ -90,7 +104,7 @@ public class AddMoney extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jButton1)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
