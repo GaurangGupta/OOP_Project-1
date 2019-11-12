@@ -28,7 +28,7 @@ public class BookingScreen extends javax.swing.JFrame {
                     public void paintComponent(Graphics g)
                 {
                     super.paintComponent(g);
-                    g.drawImage(img, 0, 0, 758, 510, this);
+                    g.drawImage(img, 0, 0, 758, 560, this);
                 }
                 });
         setResizable(false);
@@ -252,12 +252,12 @@ public class BookingScreen extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
                 .addComponent(jLabel7)
@@ -303,8 +303,7 @@ public class BookingScreen extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(book_button)
                 .addGap(72, 72, 72)
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel6))
         );
 
         loc_a_drop.setVisible(false);
