@@ -125,9 +125,9 @@ public class AddMoney extends javax.swing.JFrame {
         try{
 //                    Class.forName("com.mysql.jdbc.Driver"); 
 
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_new","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
 
-                String query = "update users set num_points = ? where first_name = ?";
+                String query = "update userdata set num_points = ? where first_name = ?";
 
                 PreparedStatement myStmt = myConn.prepareStatement(query);
 

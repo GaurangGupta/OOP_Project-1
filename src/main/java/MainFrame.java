@@ -62,7 +62,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        book_cab = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,10 +81,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Book Cab");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        book_cab.setText("Book Cab");
+        book_cab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                book_cabActionPerformed(evt);
             }
         });
 
@@ -103,7 +103,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(108, 108, 108)
                 .addComponent(jButton1)
                 .addGap(114, 114, 114)
-                .addComponent(jButton2)
+                .addComponent(book_cab)
                 .addGap(112, 112, 112)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(106, Short.MAX_VALUE))
@@ -129,7 +129,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(108, 108, 108)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(book_cab)
                     .addComponent(jButton3))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
@@ -144,15 +144,15 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void book_cabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_book_cabActionPerformed
         // fetch user_id's corresponding balance
         try{
             
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/school","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
             
             Statement myStmt = myConn.createStatement();
 
-            ResultSet myRs = myStmt.executeQuery("select * from learner");
+            ResultSet myRs = myStmt.executeQuery("select * from userdata");
                         
             while(myRs.next()){
                 String id = myRs.getString("id");
@@ -179,7 +179,7 @@ public class MainFrame extends javax.swing.JFrame {
             book_cab.setVisible(true);
         }
        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_book_cabActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -224,8 +224,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton book_cab;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
