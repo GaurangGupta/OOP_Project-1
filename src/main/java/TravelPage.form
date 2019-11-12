@@ -24,16 +24,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="189" max="32767" attributes="0"/>
-              <Component id="prog_bar" min="-2" pref="327" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="time_elap" min="-2" pref="109" max="-2" attributes="0"/>
@@ -48,7 +43,15 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="prog_bar" min="-2" pref="327" max="-2" attributes="0"/>
+                  <Component id="from_in" min="-2" pref="107" max="-2" attributes="0"/>
+                  <Component id="to_in" min="-2" pref="107" max="-2" attributes="0"/>
+                  <Component id="time_el_in" min="-2" pref="107" max="-2" attributes="0"/>
+                  <Component id="time_rem_in" min="-2" pref="107" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,13 +61,25 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="from" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="from" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="from_in" min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="to" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
-              <Component id="time_elap" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Component id="time_rem" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="to" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="to_in" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="time_elap" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="time_el_in" alignment="1" min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="time_rem" min="-2" max="-2" attributes="0"/>
+                  <Component id="time_rem_in" min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Component id="prog_bar" min="-2" pref="79" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
@@ -118,6 +133,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Time Remaining:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="from_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="to_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="time_el_in">
+    </Component>
+    <Component class="javax.swing.JLabel" name="time_rem_in">
     </Component>
   </SubComponents>
 </Form>

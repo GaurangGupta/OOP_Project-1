@@ -18,6 +18,11 @@ public class RideReview extends javax.swing.JFrame {
     }
     
     public RideReview(String start, String drop, String dri_name, int duration, int fare) {
+        start_in.setText(start);
+        drop_in.setText(drop);
+        name_in.setText(dri_name);
+        duration_in.setText(""+duration);
+        fare_in.setText(""+fare);
         initComponents();
     }
 
@@ -43,13 +48,13 @@ public class RideReview extends javax.swing.JFrame {
         three_star = new javax.swing.JRadioButton();
         four_star = new javax.swing.JRadioButton();
         five_star = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
         back_to_main = new javax.swing.JButton();
+        start_in = new javax.swing.JLabel();
+        drop_in = new javax.swing.JLabel();
+        name_in = new javax.swing.JLabel();
+        fare_in = new javax.swing.JLabel();
+        duration_in = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +71,7 @@ public class RideReview extends javax.swing.JFrame {
         driver_name.setText("Driver Name:");
 
         driver_pre_rating.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        driver_pre_rating.setText("Driver Rating:");
+        driver_pre_rating.setText("Fare:");
 
         trip_duration.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         trip_duration.setText("Trip Duration:");
@@ -141,14 +146,18 @@ public class RideReview extends javax.swing.JFrame {
                                 .addComponent(trip_duration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(driver_pre_rating, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(driver_name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(drop_in, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                    .addComponent(name_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(start_in, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fare_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(duration_in, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(303, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addComponent(back_to_main)
@@ -168,23 +177,23 @@ public class RideReview extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(starting_point)
-                    .addComponent(jLabel8))
-                .addGap(26, 26, 26)
+                    .addComponent(start_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dropping_point)
-                    .addComponent(jLabel9))
+                    .addComponent(drop_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(driver_name)
-                    .addComponent(jLabel10))
+                    .addComponent(name_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(driver_pre_rating)
-                    .addComponent(jLabel11))
+                    .addComponent(fare_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(trip_duration)
-                    .addComponent(jLabel12))
+                    .addComponent(duration_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -197,7 +206,7 @@ public class RideReview extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back_to_main)
                     .addComponent(exit))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
@@ -264,18 +273,18 @@ public class RideReview extends javax.swing.JFrame {
     private javax.swing.JLabel driver_name;
     private javax.swing.JLabel driver_pre_rating;
     private javax.swing.ButtonGroup driver_rating;
+    private javax.swing.JLabel drop_in;
     private javax.swing.JLabel dropping_point;
+    private javax.swing.JLabel duration_in;
     private javax.swing.JButton exit;
+    private javax.swing.JLabel fare_in;
     private javax.swing.JRadioButton five_star;
     private javax.swing.JRadioButton four_star;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel name_in;
     private javax.swing.JRadioButton one_star;
     private javax.swing.JLabel ride_review;
+    private javax.swing.JLabel start_in;
     private javax.swing.JLabel starting_point;
     private javax.swing.JRadioButton three_star;
     private javax.swing.JLabel trip_duration;
