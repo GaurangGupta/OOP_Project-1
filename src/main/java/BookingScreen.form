@@ -73,7 +73,7 @@
                               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" pref="77" max="-2" attributes="0"/>
-                                  <Component id="car_mini" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="car_sedan" min="-2" pref="120" max="-2" attributes="0"/>
                                   <Component id="car_suv" min="-2" pref="120" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
@@ -112,7 +112,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="loc_a_pick" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="loc_a_drop" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="car_mini" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="car_sedan" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -301,13 +301,16 @@
         <Property name="text" type="java.lang.String" value="Ride Type"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="car_mini">
+    <Component class="javax.swing.JRadioButton" name="car_sedan">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="car_type_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Mini"/>
+        <Property name="text" type="java.lang.String" value="Sedan"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="car_sedanActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="car_suv">
       <Properties>

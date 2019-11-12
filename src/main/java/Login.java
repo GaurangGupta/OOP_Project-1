@@ -195,28 +195,28 @@ public class Login extends javax.swing.JFrame {
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
             while(myRs.next())
-			{
-				if(myRs.getString("id").equals(tname))
-				{
-					if(myRs.getString("password").equals(tpass))
-					{
-						p=1;
-						dispose();
-						MainFrame main_fr = new MainFrame(tname);
-						main_fr.setVisible(true);
-					}
-					else
-					{
-						JOptionPane.showMessageDialog(null,"Username and Password do not match");
-                                                q = 1;
-                                        }
-				}
+                {
+                    if(myRs.getString("id").equals(tname))
+                    {
+                            if(myRs.getString("password").equals(tpass))
+                            {
+                                    p=1;
+                                    dispose();
+                                    MainFrame main_fr = new MainFrame(tname);
+                                    main_fr.setVisible(true);
+                            }
+                            else
+                            {
+                                    JOptionPane.showMessageDialog(null,"Username and Password do not match");
+                                    q = 1;
+                            }
+                    }
+                }
+                if(p == 0 && q == 0)
+                {
+                        JOptionPane.showMessageDialog(null,"There is no such user");
+                }
             }
-			if(p == 0 && q == 0)
-			{
-				JOptionPane.showMessageDialog(null,"There is no such user");
-			}
-		}
             catch(Exception e){
                 System.out.println(e);
             }

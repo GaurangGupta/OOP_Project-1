@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.sql.*;
 /**
  *
  * @author rushi
@@ -67,7 +68,7 @@ public class BookingScreen extends javax.swing.JFrame {
         loc_b_drop = new javax.swing.JRadioButton();
         loc_c_drop = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        car_mini = new javax.swing.JRadioButton();
+        car_sedan = new javax.swing.JRadioButton();
         car_suv = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         loc_d_drop = new javax.swing.JRadioButton();
@@ -163,8 +164,13 @@ public class BookingScreen extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Ride Type");
 
-        car_type_group.add(car_mini);
-        car_mini.setText("Mini");
+        car_type_group.add(car_sedan);
+        car_sedan.setText("Sedan");
+        car_sedan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                car_sedanActionPerformed(evt);
+            }
+        });
 
         car_type_group.add(car_suv);
         car_suv.setText("SUV");
@@ -235,7 +241,7 @@ public class BookingScreen extends javax.swing.JFrame {
                                 .addGap(84, 84, 84)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(car_mini, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(car_sedan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(car_suv, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(119, 119, 119)
@@ -264,7 +270,7 @@ public class BookingScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loc_a_pick)
                     .addComponent(loc_a_drop)
-                    .addComponent(car_mini))
+                    .addComponent(car_sedan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loc_b_pick)
@@ -314,30 +320,154 @@ public class BookingScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void book_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_book_buttonActionPerformed
-
-        if(!loc_a_pick.isSelected() && !loc_b_pick.isSelected() && !loc_c_pick.isSelected() && !loc_d_pick.isSelected() && !loc_e_pick.isSelected() && !loc_f_pick.isSelected() && !loc_g_pick.isSelected() && !loc_h_pick.isSelected())
+        int pickupid = 0;
+        if(loc_a_pick.isSelected()){
+            pickupid = 1;
+        }
+        else if(loc_b_pick.isSelected()){
+            pickupid = 2;
+        }
+        else if(loc_c_pick.isSelected()){
+            pickupid = 3;
+        }
+        else if(loc_d_pick.isSelected()){
+            pickupid = 4;
+        }
+        else if(loc_e_pick.isSelected()){
+            pickupid = 5;
+        }
+        else if(loc_f_pick.isSelected()){
+            pickupid = 6;
+        }
+        else if(loc_g_pick.isSelected()){
+            pickupid = 7;
+        }
+        else if(loc_h_pick.isSelected()){
+            pickupid = 8;
+        }
+        
+        int dropid = 0;
+        String drop_loc="";
+        if(loc_a_drop.isSelected()){
+            dropid = 1;
+            drop_loc =  "dist1";
+        }
+        else if(loc_b_drop.isSelected()){
+            dropid = 2;
+            drop_loc =  "dist2";
+        }
+        else if(loc_c_drop.isSelected()){
+            dropid = 3;
+            drop_loc =  "dist3";
+        }
+        else if(loc_d_drop.isSelected()){
+            dropid = 4;
+            drop_loc =  "dist4";
+        }
+        else if(loc_e_drop.isSelected()){
+            dropid = 5;
+            drop_loc =  "dist5";
+        }
+        else if(loc_f_drop.isSelected()){
+            dropid = 6;
+            drop_loc =  "dist6";
+        }
+        else if(loc_g_drop.isSelected()){
+            dropid = 7;
+            drop_loc =  "dist7";
+        }
+        else if(loc_h_drop.isSelected()){
+            dropid = 8;
+            drop_loc =  "dist8";
+        }
+                
+        int cartype = 0;
+        if(car_sedan.isSelected()){
+            cartype = 1;
+        }
+        else if(car_suv.isSelected()){
+            cartype = 2;
+        }
+        
+        //checking for exception cases
+        if(pickupid == 0)
         {
         //displaying error if no pick-up is selected
             JOptionPane.showMessageDialog (null,"Please select a pick-up location");
         }
         
-        else if(!loc_a_drop.isSelected()&&!loc_b_drop.isSelected()&&!loc_c_drop.isSelected()&&!loc_d_drop.isSelected()&&!loc_e_drop.isSelected()&&!loc_f_drop.isSelected()&&!loc_g_drop.isSelected()&&!loc_h_drop.isSelected())
+        else if(dropid == 0)
         {
         //displaying error if no drop is selected
             JOptionPane.showMessageDialog (null,"Please select a drop location");
         }
         
-        else if(!car_mini.isSelected()&&!car_suv.isSelected())
+        else if(cartype == 0)
         {
         //displaying error if no car is selected
             JOptionPane.showMessageDialog (null,"Please select a car type");
         }
         
-        else if(true)
+        else
         {
-            String pickup,drop;
+            String pickup = "", drop = drop_loc, driver_name = "";
+            int fare = 0;
+            float driver_rating = 0;
+            
+            //retrieve values from locations database
+            try{
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/locations","root","root");
+                Statement myStmt = myConn.createStatement();
+                ResultSet myRs = myStmt.executeQuery("select * from distances");
+                while(myRs.next())
+                {
+                    if(Integer.parseInt(myRs.getString("sNo")) == pickupid){
+                        fare = 20 * Integer.parseInt(myRs.getString(drop_loc));
+                        pickup = myRs.getString("name");
+                    }
+                }
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+            //retrieve values from drivers database
+            try{
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+                Statement myStmt = myConn.createStatement();
+                ResultSet myRs = myStmt.executeQuery("select * from driver");
+                int flag = 0, flag1 = 0;
+                while(myRs.next())
+                {
+                    if(Integer.parseInt(myRs.getString("cur_pos")) == pickupid){
+                        flag = 1;
+                        if(Integer.parseInt(myRs.getString("car_type")) == cartype){
+                            driver_name = myRs.getString("driver_name");
+                            driver_rating = Float.parseFloat(myRs.getString("rating"));
+                            flag1 = 1;
+                        }
+                    }
+                    
+                }
+                if(flag == 0){
+                    JOptionPane.showMessageDialog(null, "Sorry, no SUVs available in your area.");
+                }
+                else if(flag1 == 0){
+                    if(cartype == 1)
+                        JOptionPane.showMessageDialog(null, "Sorry, no sedans available in your area.");
+                    else
+                        JOptionPane.showMessageDialog(null, "Sorry, no SUVs available in your area.");
+                }
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+//            System.out.println(pickup + " " + drop + " " + driver_name + " " + driver_rating + " " + fare);
+            dispose();
+            DriverPage dp = new DriverPage(pickup, drop, fare, driver_name, driver_rating);
+            dp.setVisible(true);
         } 
         
+        //send  to DriverPage
     }//GEN-LAST:event_book_buttonActionPerformed
 
     private void loc_b_pickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_b_pickActionPerformed
@@ -435,6 +565,10 @@ public class BookingScreen extends javax.swing.JFrame {
         loc_h_drop.setVisible(true);
     }//GEN-LAST:event_loc_f_pickActionPerformed
 
+    private void car_sedanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_car_sedanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_car_sedanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -472,7 +606,7 @@ public class BookingScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton book_button;
-    private javax.swing.JRadioButton car_mini;
+    private javax.swing.JRadioButton car_sedan;
     private javax.swing.JRadioButton car_suv;
     private javax.swing.ButtonGroup car_type_group;
     private javax.swing.ButtonGroup dest_butt_group;
