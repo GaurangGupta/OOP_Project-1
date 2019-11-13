@@ -182,70 +182,118 @@ public class CreateAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please enter valid credentials");
         }
         else {
+            
             String name = set_name.getText();
             String phone_number = set_phone_number_field.getText();
             String email_id = set_emailid_field.getText();
             String user_name =  set_username_field.getText();
             String password = set_password_field.getText();
-            int balance = 0;    
-            
-            //checking whether it's a valid email address
-            int counter = 0;
-            for(int i = 0; i<email_id.length();i++){
-                if(email_id.charAt(i) == '@' && counter == 0){
-                    counter = 1;
+            int balance = 0,p=0;    
+            try
+            {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection myConnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                Statement mySttmt = myConnn.createStatement();
+                ResultSet mytRs = mySttmt.executeQuery("select * from userdata where id= '"+user_name+"'" );
+                if(mytRs.next())
+                {
+                    JOptionPane.showMessageDialog(null,"User id is already taken, try again");
                 }
-                if(email_id.charAt(i) == '.' && counter == 1){
-                    counter = 2;
-                }
-            }
-            if(counter != 2){
-                JOptionPane.showMessageDialog(null,"Please enter a valid email address");
-            }
-            
-            //check for 10 digit phone number 
-            int counter2 = 0;
-            if(phone_number.length() == 10){
-                
-                counter2 = 1;
-            }
-            
-            //sql queries
-            if(counter == 2 && counter2 == 1){
-                try{
-//                    Class.forName("com.mysql.jdbc.Driver"); 
+                else
+                {
+                    //checking whether it's a valid email address
+                    for(int i=0;i<name.length();i++)
+                    {
+                        if(name.charAt(i)<='z' && name.charAt(i)>='a')
+                        {
+                            ;
+                        }
+                        else if(name.charAt(i)<='z' && name.charAt(i)>='a')
+                        {
+                            ;
+                        }
+                        else if(name.charAt(i)!=' ')
+                        {
+                            JOptionPane.showMessageDialog(null,"Please enter a valid name");
+                            p=1;
+                        }
+                    }              
+                    if(p==0)
+                    {
+                        int counter = 0;
+                        for(int i = 0; i<email_id.length();i++){
+                            if(email_id.charAt(i) == '@' && counter == 0){
+                                counter = 1;
+                            }
+                            if(email_id.charAt(i) == '.' && counter == 1){
+                                counter = 2;
+                            }
+                        }
+                        if(counter != 2){
+                            JOptionPane.showMessageDialog(null,"Please enter a valid email address");
+                        }
 
-                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
-                    
-                    String query = " insert into userdata (name, id, phone, email, password, balance)"+ " values (?, ?, ?, ?, ?, ?)";
-                    
-                    PreparedStatement myStmt = myConn.prepareStatement(query);
-                    
-                    myStmt.setString(1,name);
-                    myStmt.setString(2,user_name);
-                    myStmt.setString(3,phone_number);
-                    myStmt.setString(4,email_id);
-                    myStmt.setString(5,password);
-                    myStmt.setInt(6,balance);
-                    
-                    myStmt.execute();
-//                    ResultSet myRs = myStmt.executeQuery("select * from learner");
-        //            ResultSet myRs1 = myStmt.executeQuery("insert into learner values(2,002,'Gaurang Gupta')");
+                        //check for 10 digit phone number 
+                        int counter2 = 0;
+                        if(phone_number.length() == 10){
+
+                            counter2 = 1;
+                            for(int i = 0; i<phone_number.length();i++){
+                                if(phone_number.charAt(i)<'0' || phone_number.charAt(i)>'9')
+                                {
+                                    counter2=0;
+                                }
+                            }
+
+                        }
+                           if(counter2==0 && counter==2)
+                           {
+                               JOptionPane.showMessageDialog(null,"Please enter a valid phone number");
+                           }
+
+                        //sql queries
+                        if(counter == 2 && counter2 == 1){
+                            try{
+            //                    Class.forName("com.mysql.jdbc.Driver"); 
+
+                                Class.forName("com.mysql.jdbc.Driver");
+                                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+
+                                String query = " insert into userdata (name, id, phone, email, password, balance)"+ " values (?, ?, ?, ?, ?, ?)";
+
+                                PreparedStatement myStmt = myConn.prepareStatement(query);
+
+                                myStmt.setString(1,name);
+                                myStmt.setString(2,user_name);
+                                myStmt.setString(3,phone_number);
+                                myStmt.setString(4,email_id);
+                                myStmt.setString(5,password);
+                                myStmt.setInt(6,balance);
+
+                                myStmt.execute();
+            //                    ResultSet myRs = myStmt.executeQuery("select * from learner");
+                    //            ResultSet myRs1 = myStmt.executeQuery("insert into learner values(2,002,'Gaurang Gupta')");
 
 
-//                    while(myRs.next()){
-//                        System.out.println(myRs.getString("name"));
-//                    }
-                    myConn.close();
-                    dispose();
-                    Login login_page = new Login();
-                    login_page.setVisible(true);
-                }
-                catch(Exception e){
-                    System.out.println(e);
+            //                    while(myRs.next()){
+            //                        System.out.println(myRs.getString("name"));
+            //                    }
+                                myConn.close();
+                                dispose();
+                                Login login_page = new Login();
+                                login_page.setVisible(true);
+                            }
+                            catch(Exception e){
+                                System.out.println(e);
+                            }
+                        }
+                    }
                 }
             }
-            
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
        }            // TODO add your handling code here:
     }//GEN-LAST:event_register_buttonActionPerformed
 

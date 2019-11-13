@@ -35,7 +35,8 @@ public class MainFrame extends javax.swing.JFrame {
         setResizable(false);
         initComponents();
     }
-    public MainFrame(String user_id) {
+    public MainFrame(String use_id) {
+        user_id=use_id;
         this.setContentPane(new JPanel()
                 {
                     @Override
@@ -64,6 +65,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         book_cab = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        bal_in = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(734, 445));
@@ -95,6 +97,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        bal_in.setText("jLabel4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,6 +120,8 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(137, 137, 137)
                 .addComponent(jLabel2)
+                .addGap(34, 34, 34)
+                .addComponent(bal_in)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,7 +132,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(jLabel3)
                 .addGap(70, 70, 70)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(bal_in))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -149,7 +157,8 @@ public class MainFrame extends javax.swing.JFrame {
         // fetch user_id's corresponding balance
         try{
             
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+           Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             
             Statement myStmt = myConn.createStatement();
 
@@ -225,6 +234,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bal_in;
     private javax.swing.JButton book_cab;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
