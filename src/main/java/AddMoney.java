@@ -216,10 +216,6 @@ public class AddMoney extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        int money = Integer.parseInt(add_money.getText()); 
-        String user_name = "";
-
         if (add_money.getText().equals("") || bal_cur.getText().equals("") || doe.getText().equals("") || doe1.getText().equals("") || cvv.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,"Please fill all the entries");
@@ -235,7 +231,6 @@ public class AddMoney extends javax.swing.JFrame {
             for(int i=0;i<amt.length();i++)
             {
                 if(amt.charAt(i)<'0' || amt.charAt(i)>'9')
-
                 {
                     p=1;
                     break;

@@ -1,10 +1,14 @@
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import javax.swing.JPanel;
 //import javax.swing.JOptionPane;
 
 /*
@@ -26,10 +30,20 @@ public class RideReview extends javax.swing.JFrame {
     /**
      * Creates new form RideReview
      */
-
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\logo.jpg");
     
     public RideReview(String user_id, String start, String drop, String dri_name, int duration, int fare) {
         this.user_id = user_id;
+                this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 700, 560, this);
+                }
+                });
+        setResizable(false);
         initComponents();
         start_in.setText(start);
         drop_in.setText(drop);
@@ -69,7 +83,7 @@ public class RideReview extends javax.swing.JFrame {
         //updating balance - access user database
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             
             System.out.println("\n" + user_id + "\n");
             //get the previous balance
@@ -100,7 +114,7 @@ public class RideReview extends javax.swing.JFrame {
         try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
                 
             
 //                Statement myStmt1 = myConn.createStatement();
@@ -279,13 +293,16 @@ public class RideReview extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(drop_in, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                    .addComponent(name_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(name_in, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                                     .addComponent(start_in, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fare_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(duration_in, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(duration_in, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(drop_in, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))))
                 .addContainerGap(197, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
@@ -366,7 +383,7 @@ public class RideReview extends javax.swing.JFrame {
         int balance = 0;
         try{    
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
             
@@ -392,7 +409,17 @@ public class RideReview extends javax.swing.JFrame {
     }//GEN-LAST:event_back_to_mainActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        // TODO add your handling code here:
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+            Statement myStmt = myConn.createStatement();
+            myStmt.executeUpdate("update userdata set logged_in = 0 where id = '" + user_id + "'");
+        }
+        catch(Exception e)
+        {
+           System.out.println(e);
+        }        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
@@ -433,7 +460,7 @@ public class RideReview extends javax.swing.JFrame {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
                 Statement myStmt = myConn.createStatement();
                 ResultSet myRs = myStmt.executeQuery("select * from driver" );
                 while(myRs.next())

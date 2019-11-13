@@ -49,10 +49,10 @@
                           <Component id="to" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="from" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="from_in" pref="146" max="32767" attributes="0"/>
-                          <Component id="to_in" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="from_in" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="to_in" min="-2" pref="146" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -70,17 +70,29 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="from" min="-2" max="-2" attributes="0"/>
-                  <Component id="from_in" min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <Component id="from" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="from_in" min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="to" min="-2" max="-2" attributes="0"/>
-                  <Component id="to_in" min="-2" pref="49" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="to" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="to_in" min="-2" pref="49" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
               <Component id="prog_bar" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">

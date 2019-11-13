@@ -22,7 +22,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\logo.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\logo.jpg");
     
     public Login() {
         this.setContentPane(new JPanel()
@@ -172,7 +172,7 @@ public class Login extends javax.swing.JFrame {
 
     private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+       System.exit(0);
     }//GEN-LAST:event_exit_buttonActionPerformed
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
@@ -186,8 +186,8 @@ public class Login extends javax.swing.JFrame {
             String tpass = password_field.getText();
             String tname = username_textfield.getText();
             try{
-//            Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
             int balance = 0;
@@ -197,11 +197,35 @@ public class Login extends javax.swing.JFrame {
                     {
                             if(myRs.getString("password").equals(tpass))
                             {
-                                    balance = myRs.getInt("balance");
-                                    p=1;
-                                    dispose();
-                                    MainFrame main_fr = new MainFrame(tname, balance);
-                                    main_fr.setVisible(true);
+                                    Statement mySttmt = myConn.createStatement();
+                                    ResultSet myRss = mySttmt.executeQuery("select * from userdata where id = '"+tname+"'");
+                                    while(myRss.next())
+                                    {
+                                        p=myRss.getInt("logged_in");
+                                    }
+                                    if(p==1)
+                                    {
+                                        JOptionPane.showMessageDialog(null,"User is alreaady logged in");
+                                    }
+                                    else
+                                    {
+                                        try
+                                        {
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            Connection myConnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                                            Statement myStmmt = myConnn.createStatement();
+                                            myStmmt.executeUpdate("update userdata set logged_in = 1 where id = '" + tname + "'");
+                                        }
+                                        catch(Exception e)
+                                        {
+                                           System.out.println(e);
+                                        }
+                                        balance = myRs.getInt("balance");
+                                        p=1;
+                                        dispose();
+                                        MainFrame main_fr = new MainFrame(tname, balance);
+                                        main_fr.setVisible(true);
+                                    }
                             }
                             else
                             {

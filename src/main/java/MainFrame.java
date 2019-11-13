@@ -161,7 +161,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             
            Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             
             Statement myStmt = myConn.createStatement();
 
@@ -196,6 +196,17 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+            Statement myStmt = myConn.createStatement();
+            myStmt.executeUpdate("update userdata set logged_in = 0 where id = '" + user_id + "'");
+        }
+        catch(Exception e)
+        {
+           System.out.println(e);
+        }
         dispose();
         Login login_page = new Login();
         login_page.setVisible(true);

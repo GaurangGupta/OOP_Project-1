@@ -62,7 +62,7 @@ public class TravelPage extends javax.swing.JFrame {
 //        
 //    }
      String user_id;
-     Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Projectmap_bg1.jpg");
+     Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\bg1.jpg");
      public TravelPage(String user_id, String start, String drop, String dri_name, int duration, int fare) {
         this.user_id = user_id;
         System.out.println("\n" + user_id + "\n");
@@ -88,6 +88,8 @@ public class TravelPage extends javax.swing.JFrame {
         prog_bar.setForeground(Color.pink);
         from_in.setText(start);
         time_left=duration;
+        from_in.setFont(new Font("Serif", Font.PLAIN, 22));
+        to_in.setFont(new Font("Serif", Font.PLAIN, 22));
         to_in.setText(drop);
         
         
@@ -99,9 +101,9 @@ public class TravelPage extends javax.swing.JFrame {
         {
             public void run()
             {
-                time_el_in.setText(""+time_done);
+                time_el_in.setText(""+time_done+"sec");
                 time_done++;
-                time_rem_in.setText(""+time_left);
+                time_rem_in.setText(""+time_left+"sec");
                 time_left--;
                 prog_bar.setBackground(Color.green);
                 prog_bar.setForeground(Color.green);
@@ -179,10 +181,10 @@ public class TravelPage extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(from))
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(from_in, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(to_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(from_in, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(to_in, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -194,15 +196,23 @@ public class TravelPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(ongoing_ride_label)
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(from)
-                    .addComponent(from_in, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(to)
-                    .addComponent(to_in, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(from)
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(from_in, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(to))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(to_in, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(prog_bar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
