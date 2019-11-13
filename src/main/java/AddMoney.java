@@ -193,7 +193,7 @@ public class AddMoney extends javax.swing.JFrame {
                 int cur=0;
                 if(myRs.next())
                 {
-                    cur=myRs.getInt("balance");
+                    cur = myRs.getInt("balance");
                 }
 
                 String query = "update userdata set balance = ? where id = ?";
@@ -211,7 +211,7 @@ public class AddMoney extends javax.swing.JFrame {
 //                    }
                 myConn.close();
                 dispose();
-                MainFrame mframe = new MainFrame(user_id);
+                MainFrame mframe = new MainFrame(user_id,money+cur);
                 mframe.setVisible(true);
             }
             catch(Exception e){

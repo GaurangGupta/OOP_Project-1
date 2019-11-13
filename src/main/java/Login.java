@@ -68,6 +68,7 @@ public class Login extends javax.swing.JFrame {
         password_label.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         password_label.setText("Password");
 
+
         login_button.setText("Login");
         login_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,10 +111,6 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(password_field, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                     .addComponent(username_textfield))
                 .addContainerGap(460, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(login_title_label)
-                .addGap(280, 280, 280))
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(login_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,9 +120,11 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(exit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(create_account_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(create_account_button, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login_title_label))
+                .addGap(265, 265, 265))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,17 +139,14 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(create_account_button)
-                        .addGap(171, 171, 171))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(reset_button)
-                            .addComponent(exit_button)
-                            .addComponent(login_button))
-                        .addGap(70, 70, 70))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addComponent(create_account_button)
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset_button)
+                    .addComponent(exit_button)
+                    .addComponent(login_button))
+                .addGap(70, 70, 70))
         );
 
         pack();
@@ -193,15 +189,17 @@ public class Login extends javax.swing.JFrame {
             Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
+            int balance = 0;
             while(myRs.next())
                 {
                     if(myRs.getString("id").equals(tname))
                     {
                             if(myRs.getString("password").equals(tpass))
                             {
+                                    balance = myRs.getInt("balance");
                                     p=1;
                                     dispose();
-                                    MainFrame main_fr = new MainFrame(tname);
+                                    MainFrame main_fr = new MainFrame(tname, balance);
                                     main_fr.setVisible(true);
                             }
                             else
@@ -219,7 +217,7 @@ public class Login extends javax.swing.JFrame {
             catch(Exception e){
                 System.out.println(e);
             }
-            }
+           }
             
     }//GEN-LAST:event_login_buttonActionPerformed
 

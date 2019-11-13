@@ -20,23 +20,40 @@ public class RideReview extends javax.swing.JFrame {
     
     int flag = 1;
     double rating;
-    String driver_name;
+    String driver_name, user_id;
 
     /**
      * Creates new form RideReview
      */
-    public RideReview() {
-        initComponents();
-    }
+
     
-    public RideReview(String start, String drop, String dri_name, int duration, int fare) {
+    public RideReview(String user_id, String start, String drop, String dri_name, int duration, int fare) {
+        
+        initComponents();
         start_in.setText(start);
         drop_in.setText(drop);
         name_in.setText(dri_name);
         driver_name = dri_name;
         duration_in.setText(""+duration);
         fare_in.setText(""+fare);
-        initComponents();
+        
+        //updating balance
+        try
+            {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+                
+            
+//                Statement myStmt1 = myConn.createStatement();
+//                myStmt1.executeUpdate("update driver set rating = " + rating + "where driver_name = '" + driver_name + "'");
+            
+                Statement myStmt2 = myConn.createStatement();
+                myStmt2.executeUpdate("update driver set cur_status = 0 where driver_name = '" + driver_name + "'");
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
     }
 
     /**
@@ -270,9 +287,30 @@ public class RideReview extends javax.swing.JFrame {
     }//GEN-LAST:event_two_starActionPerformed
 
     private void back_to_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_to_mainActionPerformed
+        int balance = 0;
+        try{    
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+            Statement myStmt = myConn.createStatement();
+            ResultSet myRs = myStmt.executeQuery("select * from userdata");
+            
+            while(myRs.next())
+                {
+                    if(myRs.getString("id").equals(user_id))
+                    {
+                            
+                                    balance = myRs.getInt("balance");
+                            }
+                            
+                    }
+                }
+        
+        catch(Exception e){
+            
+        }
         // TODO add your handling code here:
         dispose();
-        MainFrame mf = new MainFrame();
+        MainFrame mf = new MainFrame(user_id, balance);
         mf.setVisible(true);
         
     }//GEN-LAST:event_back_to_mainActionPerformed
@@ -312,7 +350,7 @@ public class RideReview extends javax.swing.JFrame {
     private void rating_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rating_confirmActionPerformed
         // TODO add your handling code here:
         
-        if(flag == 1){
+        
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -332,57 +370,53 @@ public class RideReview extends javax.swing.JFrame {
                 }
             
                 Statement myStmt1 = myConn.createStatement();
-                ResultSet myRs1 = myStmt1.executeQuery("update drivers set rating = " + rating + "where driver_name = '" + driver_name + "'");
+                myStmt1.executeUpdate("update driver set rating = " + rating + "where driver_name = '" + driver_name + "'");
             
                 Statement myStmt2 = myConn.createStatement();
-                ResultSet myRs2 = myStmt2.executeQuery("update drivers set cur_status = 0 where driver_name = '" + driver_name + "'");
+                myStmt2.executeUpdate("update driver set cur_status = 0 where driver_name = '" + driver_name + "'");
             }
             catch(Exception e)
             {
                 System.out.println(e);
             }
-            flag = 0;
-        }
-        else
-        {
-            JOptionPane.showMessageDialog (null,"Already rated once");
-        }
+            rating_confirm.setEnabled(false);
+        
     }//GEN-LAST:event_rating_confirmActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RideReview().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(RideReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new RideReview().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_to_main;

@@ -24,8 +24,47 @@ public class TravelPage extends javax.swing.JFrame {
      * Creates new form TravelPage
      */
     Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
-    public TravelPage() {
-             this.setContentPane(new JPanel()
+//    public TravelPage() {
+//             this.setContentPane(new JPanel()
+//                {
+//                    @Override
+//                    public void paintComponent(Graphics g)
+//                {
+//                    super.paintComponent(g);
+//                    g.drawImage(img, 0, 0, 700, 560, this);
+//                }
+//                });
+//        setResizable(false);
+//        initComponents();
+//        
+//        time_el_in.setFont(new Font("Serif", Font.PLAIN, 22));
+//        time_rem_in.setFont(new Font("Serif", Font.PLAIN, 22));
+//        Timer timer = new Timer();
+//        TimerTask task = new TimerTask()
+//        {
+//            public void run()
+//            {
+//                time_el_in.setText(""+time_done);
+//                time_done++;
+//                time_rem_in.setText(""+time_left);
+//                time_left--;
+//                if(time_left == -1)
+//                {
+//                    dispose();
+//                    RideReview ride_review = new RideReview(start, drop, dri_name, duration, fare);
+//                    ride_review.setVisible(true);
+//                }
+//            }
+//        };
+//        timer.scheduleAtFixedRate(task, 0, 1000);
+//        
+//        
+//    }
+     String user_id;
+     public TravelPage(String user_id, String start, String drop, String dri_name, int duration, int fare) {
+        
+        
+                     this.setContentPane(new JPanel()
                 {
                     @Override
                     public void paintComponent(Graphics g)
@@ -34,12 +73,22 @@ public class TravelPage extends javax.swing.JFrame {
                     g.drawImage(img, 0, 0, 700, 560, this);
                 }
                 });
+                     
+                     
+                     
+                System.out.println("Reached...1");     
         setResizable(false);
         initComponents();
+        
+        from_in.setText(start);
+        time_left=duration;
+        to_in.setText(drop);
+        
         
         time_el_in.setFont(new Font("Serif", Font.PLAIN, 22));
         time_rem_in.setFont(new Font("Serif", Font.PLAIN, 22));
         Timer timer = new Timer();
+        System.out.println("Reached...2");
         TimerTask task = new TimerTask()
         {
             public void run()
@@ -51,20 +100,12 @@ public class TravelPage extends javax.swing.JFrame {
                 if(time_left == -1)
                 {
                     dispose();
-                    RideReview ride_review = new RideReview();
+                    RideReview ride_review = new RideReview(user_id, start, drop, dri_name, duration, fare);
                     ride_review.setVisible(true);
                 }
             }
         };
         timer.scheduleAtFixedRate(task, 0, 1000);
-        
-        
-    }
-    
-     public TravelPage(String start, String drop, String dri_name, int duration, int fare) {
-        from_in.setText(start);
-        to_in.setText(drop);
-        initComponents();
     }
 
     /**
@@ -163,14 +204,14 @@ public class TravelPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
 
-        try {
+       /* try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -188,13 +229,13 @@ public class TravelPage extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TravelPage().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel from;

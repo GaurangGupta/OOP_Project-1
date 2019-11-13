@@ -12,21 +12,21 @@ import javax.swing.JOptionPane;
  *
  * @author rushi
  */
-public class DriverPage extends javax.swing.JFrame {
-    String pickup_g, drop_g, driver_name_g;
-    int fare_g;
+    public class DriverPage extends javax.swing.JFrame {
+    String user_id, pickup_g, drop_g, driver_name_g;
+    int fare_g,dur_g;
     float driver_rating_g;
     /**
      * Creates new form DriverPage
      */
-    public DriverPage(String pickup, String drop, int fare, String driver_name, float driver_rating) {
+    public DriverPage(String user_id, String pickup, String drop, int fare, String driver_name, float driver_rating) {
 
         setResizable(false);
         initComponents();
         final_fare_val.setFont(new java.awt.Font("Dialog", 1, 24));
         final_fare_val.setText("" + fare + "");
         fare_g = fare;
-        
+        dur_g=fare/10;
         pick_loc_val.setFont(new java.awt.Font("Dialog", 1, 24));
         pick_loc_val.setText(pickup);
         pickup_g = pickup;
@@ -71,6 +71,7 @@ public class DriverPage extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         coupon_input = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,6 +116,13 @@ public class DriverPage extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,7 +133,10 @@ public class DriverPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(drop_loc)
-                            .addComponent(pick_loc))
+                            .addComponent(pick_loc)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(jButton1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pick_loc_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +218,9 @@ public class DriverPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                        .addComponent(confirm_booking)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirm_booking)
+                            .addComponent(jButton1))
                         .addGap(40, 40, 40))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -231,14 +244,17 @@ public class DriverPage extends javax.swing.JFrame {
             
             //updating driver status -dev
             Statement myStmt2 = myConn.createStatement();
-            ResultSet myRs2 = myStmt2.executeQuery("update drivers set cur_status = 1 where driver_name = '" + driver_name_g + "'");
+            myStmt2.executeUpdate("update driver set cur_status = 1 where driver_name = '" + driver_name_g + "'");
             
             //updating driver number of trips -dev
             Statement myStmt3 = myConn.createStatement();
             ResultSet myRs3 = myStmt3.executeQuery("select * from driver where driver_name = '" + driver_name_g + "'");
-            int a = myRs3.getInt("num_trips") + 1;
+            int a = 0;
+            while(myRs3.next()){
+                a = myRs3.getInt("num_trips") + 1;
+            }
             Statement myStmt4 = myConn.createStatement();
-            ResultSet myRs4 = myStmt4.executeQuery("update drivers set num_trips = " + a + "where driver_name = '" + driver_name_g + "'");
+            myStmt4.executeUpdate("update driver set num_trips = " + a + " where driver_name = '" + driver_name_g + "'");
             
             //gaurang's code
             Statement myStmt = myConn.createStatement();
@@ -256,11 +272,15 @@ public class DriverPage extends javax.swing.JFrame {
 	}
         catch(Exception e)
 	{
-        System.out.println(e);
+            e.printStackTrace();
+            System.out.println(e);
 	}
+        System.out.println("Reached the end");
+        
         dispose();
-        TravelPage tp = new TravelPage(pickup_g,drop_g,driver_name_g,fare_g/10,fare_g);
+        TravelPage tp = new TravelPage(user_id, pickup_g,drop_g,driver_name_g,dur_g,fare_g);
         tp.setVisible(true);
+        
     }//GEN-LAST:event_confirm_bookingActionPerformed
 
     private void coupon_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coupon_inputActionPerformed
@@ -272,7 +292,7 @@ public class DriverPage extends javax.swing.JFrame {
         String a = coupon_input.getText();
         //JOptionPane.showMessageDialog (null,a);
         //String flag = "";
-        double fare_temp = fare_g;
+        int fare_temp = fare_g;
         //JOptionPane.showMessageDialog (null,String.valueOf(fare));
 //the value of fare is being picked from the constructor method
         
@@ -282,18 +302,20 @@ public class DriverPage extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coupon?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
-            ResultSet myRs = myStmt.executeQuery("select * from coup_details" );
-            while(myRs.next())
+            ResultSet myRss = myStmt.executeQuery("select * from coup_details" );
+            while(myRss.next())
             {
-                if(myRs.getString("code").equals(a))
+                if(myRss.getString("code").equals(a))
                 {
                     p++;
-                    double discount = myRs.getInt("value")/100.0;
+                    double discount = myRss.getInt("value")/100.0;
                     //JOptionPane.showMessageDialog (null,String.valueOf(discount));
-                    fare_temp = fare_temp * (1 - discount);
+                    fare_temp = (int) (fare_temp * (1 - discount));
                     //JOptionPane.showMessageDialog (null,String.valueOf(fare));
                     final_fare_val.setFont(new java.awt.Font("Dialog", 1, 24));
                     final_fare_val.setText("" + String.valueOf(fare_temp) + "");
+                    fare_g=fare_temp;
+                    verify_code.setEnabled(false);
                 }
             }
             if(p==0)
@@ -307,6 +329,12 @@ public class DriverPage extends javax.swing.JFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_verify_codeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        BookingScreen bk = new BookingScreen(user_id);
+        bk.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,6 +383,7 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JLabel drop_loc_val;
     private javax.swing.JLabel final_fare;
     private javax.swing.JLabel final_fare_val;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

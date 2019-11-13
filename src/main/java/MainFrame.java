@@ -35,7 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
         setResizable(false);
         initComponents();
     }
-    public MainFrame(String use_id) {
+    public MainFrame(String use_id, int balance) {
         user_id=use_id;
         this.setContentPane(new JPanel()
                 {
@@ -48,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
                 });
         setResizable(false);
         initComponents();
+        bal_in.setText("" + balance);
     }
 
     /**
@@ -185,7 +186,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         else{
             dispose();
-            BookingScreen book_cab = new BookingScreen();
+            BookingScreen book_cab = new BookingScreen(user_id);
             book_cab.setVisible(true);
         }
        
