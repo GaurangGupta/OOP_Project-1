@@ -186,8 +186,8 @@ public class Login extends javax.swing.JFrame {
             String tpass = password_field.getText();
             String tname = username_textfield.getText();
             try{
-//            Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
             int balance = 0;
@@ -197,11 +197,24 @@ public class Login extends javax.swing.JFrame {
                     {
                             if(myRs.getString("password").equals(tpass))
                             {
-                                    balance = myRs.getInt("balance");
-                                    p=1;
-                                    dispose();
-                                    MainFrame main_fr = new MainFrame(tname, balance);
-                                    main_fr.setVisible(true);
+                                    Statement mySttmt = myConn.createStatement();
+                                    ResultSet myRss = mySttmt.executeQuery("select * from userdata where id = '"+tname+"'");
+                                    while(myRss.next())
+                                    {
+                                        p=myRss.getInt("logged_in");
+                                    }
+                                    if(p==1)
+                                    {
+                                        JOptionPane.showMessageDialog(null,"User is alreaady logged in");
+                                    }
+                                    else
+                                    {
+                                        balance = myRs.getInt("balance");
+                                        p=1;
+                                        dispose();
+                                        MainFrame main_fr = new MainFrame(tname, balance);
+                                        main_fr.setVisible(true);
+                                    }
                             }
                             else
                             {

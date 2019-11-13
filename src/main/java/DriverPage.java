@@ -242,7 +242,7 @@ import javax.swing.JOptionPane;
 	try
 	{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
             
             //updating driver status -dev
             Statement myStmt2 = myConn.createStatement();
@@ -302,7 +302,7 @@ import javax.swing.JOptionPane;
         {
             int p=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coupon","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coupon?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRss = myStmt.executeQuery("select * from coup_details" );
             while(myRss.next())

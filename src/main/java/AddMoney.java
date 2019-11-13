@@ -216,21 +216,8 @@ public class AddMoney extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-<<<<<<< HEAD
-        int money = Integer.parseInt(add_money.getText()); 
-        String user_name = "";
-        try{
-//                    Class.forName("com.mysql.jdbc.Driver"); 
-
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
-                Statement myStt = myConn.createStatement();
-                ResultSet myRs = myStt.executeQuery("select balance from userdata where id = user_id");
-                //String phone_number = set_phone_number_field.getText();
-            
-                int cur=0;
-                if(myRs.next())
-=======
+//        int money = Integer.parseInt(add_money.getText()); 
+//        String user_name = "";
         if (add_money.getText().equals("") || bal_cur.getText().equals("") || doe.getText().equals("") || doe1.getText().equals("") || cvv.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,"Please fill all the entries");
@@ -246,8 +233,7 @@ public class AddMoney extends javax.swing.JFrame {
             for(int i=0;i<amt.length();i++)
             {
                 if(amt.charAt(i)<'0' || amt.charAt(i)>'9')
->>>>>>> abc08ada45830e957d5a3aca8349d74737ebb6b4
-                {
+              {
                     p=1;
                     break;
                 }

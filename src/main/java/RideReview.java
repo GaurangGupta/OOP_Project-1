@@ -41,7 +41,7 @@ public class RideReview extends javax.swing.JFrame {
         //updating balance - access user database
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             
             System.out.println("\n" + user_id + "\n");
             //get the previous balance
@@ -72,7 +72,7 @@ public class RideReview extends javax.swing.JFrame {
         try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
                 
             
 //                Statement myStmt1 = myConn.createStatement();
@@ -323,7 +323,7 @@ public class RideReview extends javax.swing.JFrame {
         int balance = 0;
         try{    
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
             
@@ -390,7 +390,7 @@ public class RideReview extends javax.swing.JFrame {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
                 Statement myStmt = myConn.createStatement();
                 ResultSet myRs = myStmt.executeQuery("select * from driver" );
                 while(myRs.next())
