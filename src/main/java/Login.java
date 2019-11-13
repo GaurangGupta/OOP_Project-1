@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.*;
+import javax.swing.WindowConstants;
 
 
 /*
@@ -18,10 +19,10 @@ import java.sql.*;
  * @author rushi
  */
 public class Login extends javax.swing.JFrame {
-
     /**
      * Creates new form Login
      */
+    
     Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\logo.jpg");
     
     public Login() {

@@ -30,7 +30,7 @@ public class RideReview extends javax.swing.JFrame {
     /**
      * Creates new form RideReview
      */
-    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\logo.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\bg1.jpg");
     
     public RideReview(String user_id, String start, String drop, String dri_name, int duration, int fare) {
         this.user_id = user_id;
@@ -180,22 +180,22 @@ public class RideReview extends javax.swing.JFrame {
         ride_review.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         ride_review.setText("Ride Review");
 
-        starting_point.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        starting_point.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         starting_point.setText("Starting Point:");
 
-        dropping_point.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        dropping_point.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         dropping_point.setText("Dropping Point:");
 
-        label123.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label123.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         label123.setText("Driver Name:");
 
-        driver_pre_rating.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        driver_pre_rating.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         driver_pre_rating.setText("Fare:");
 
-        trip_duration.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        trip_duration.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         trip_duration.setText("Trip Duration:");
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel7.setText("Rating:");
 
         driver_rating.add(one_star);
@@ -251,6 +251,16 @@ public class RideReview extends javax.swing.JFrame {
                 back_to_mainActionPerformed(evt);
             }
         });
+
+        start_in.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+
+        drop_in.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+
+        name_in.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+
+        fare_in.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+
+        duration_in.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
 
         rating_confirm.setText("Confrm");
         rating_confirm.addActionListener(new java.awt.event.ActionListener() {
@@ -321,13 +331,13 @@ public class RideReview extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(ride_review)
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(starting_point)
-                    .addComponent(start_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dropping_point)
-                    .addComponent(drop_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(start_in, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(starting_point))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(drop_in, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dropping_point))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label123)
@@ -353,7 +363,7 @@ public class RideReview extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back_to_main)
                     .addComponent(exit))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();

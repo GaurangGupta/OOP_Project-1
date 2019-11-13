@@ -211,11 +211,7 @@ public class CreateAccount extends javax.swing.JFrame {
                         {
                             ;
                         }
-<<<<<<< HEAD
                         else if(name.charAt(i)<='Z' && name.charAt(i)>='A' )
-=======
-                        else if(name.charAt(i)<='Z' && name.charAt(i)>='A')
->>>>>>> 5f5a2c33d00da820d7acf429b87c51b18b3bc4b6
                         {
                             ;
                         }

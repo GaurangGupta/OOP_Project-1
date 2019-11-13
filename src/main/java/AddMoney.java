@@ -265,7 +265,7 @@ public class AddMoney extends javax.swing.JFrame {
                         }
                     }
                     int monn=Integer.parseInt(mon);
-                    if(monn>12)
+                    if(monn>12 || monn<1)
                     {
                         p=1;
                     }

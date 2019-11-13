@@ -494,6 +494,7 @@ public class BookingScreen extends javax.swing.JFrame {
             //retrieve values from drivers database
             String temp_driver_name = "";
             float temp_rating = 0;
+            int p=0,mo=0;
             try{
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
@@ -519,23 +520,52 @@ public class BookingScreen extends javax.swing.JFrame {
                 }
                 if(flag == 0){
                     JOptionPane.showMessageDialog(null, "Sorry, no cars available in your area.");
+                    p=1;
                 }
                 else if(flag1 == 0){
                     if(cartype == 1)
-                        JOptionPane.showMessageDialog(null, "Sorry, no sedans available in your area.");
+                    {   JOptionPane.showMessageDialog(null, "Sorry, no sedans available in your area.");
+                    p=2;
+                    }
                     else
+                    {
                         JOptionPane.showMessageDialog(null, "Sorry, no SUVs available in your area.");
+                        p=2;
+                    }
                 }
             }
             catch(Exception e){
                 System.out.println(e);
             }
-            System.out.println("passing following id from booking screen page\np" + user_id + "\n");
 //            System.out.println(pickup + " " + drop + " " + driver_name + " " + driver_rating + " " + fare);
-            dispose();
-            DriverPage dp = new DriverPage(user_id, pickup, drop, fare, driver_name, driver_rating);
-            dp.setVisible(true);
-        } 
+            if(p==0)
+            {
+                dispose();
+                DriverPage dp = new DriverPage(user_id, pickup, drop, fare, driver_name, driver_rating);
+                dp.setVisible(true);
+            } 
+            else
+            {
+                try
+                {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+                    Statement myStmt = myConn.createStatement();
+                    ResultSet myRs = myStmt.executeQuery("select * from driver where user_id ='"+user_id+"'");
+                    while(myRs.next())
+                    {
+                        mo=myRs.getInt("balance");
+                    }
+                    dispose();
+                    MainFrame dp = new MainFrame(user_id,mo);
+                    dp.setVisible(true);
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }
+            }
+        }
         
         //send  to DriverPage
     }//GEN-LAST:event_book_buttonActionPerformed

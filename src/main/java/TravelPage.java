@@ -82,7 +82,7 @@ public class TravelPage extends javax.swing.JFrame {
         setResizable(false);
         initComponents();
         
-        prog_bar.setMaximum(duration);
+        prog_bar.setMaximum(duration+1);
         prog_bar.setMinimum(0);
         prog_bar.setBackground(Color.pink);
         prog_bar.setForeground(Color.pink);
