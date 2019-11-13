@@ -37,7 +37,35 @@ public class RideReview extends javax.swing.JFrame {
         driver_name = dri_name;
         duration_in.setText(""+duration);
         fare_in.setText(""+fare);
-        int new_bal = 0, balance = 0;
+        int new_bal = 0, balance = 0, new_pos = 0;
+        
+        //get new_pos of driver
+        if(drop == "Eriador"){
+            new_pos = 1;
+        }
+        else if(drop == "Gondor"){
+            new_pos = 2;
+        }
+        else if(drop == "Isengard"){
+            new_pos = 3;
+        }
+        else if(drop == "Rohan"){
+            new_pos = 4;
+        }
+        else if(drop == "Helms Deep"){
+            new_pos = 5;
+        }
+        else if(drop == "The Shire"){
+            new_pos = 6;
+        }
+        else if(drop == "Mordor"){
+            new_pos = 7;
+        }
+        else if(drop == "Moria"){
+            new_pos = 8;
+        }
+        
+        
         //updating balance - access user database
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -80,11 +108,26 @@ public class RideReview extends javax.swing.JFrame {
             
                 Statement myStmt2 = myConn.createStatement();
                 myStmt2.executeUpdate("update driver set cur_status = 0 where driver_name = '" + driver_name + "'");
+                
+                Statement myStmt3 = myConn.createStatement();
+                myStmt3.executeUpdate("update driver set cur_pos = "+ new_pos +" where driver_name = '" + driver_name + "'");
             }
             catch(Exception e)
             {
                 System.out.println("Error while accessing driver database updating status of driver");
             }
+        
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history","root","root");
+            Statement myStmt = myConn.createStatement();
+            myStmt.executeUpdate("insert into " + user_id + " values('" + start + "', '" + drop + "', " + fare + ")");
+        }
+        catch(Exception e)
+        {
+           System.out.println(e);
+        }
     }
 
     /**

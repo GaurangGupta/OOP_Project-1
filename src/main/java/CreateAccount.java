@@ -188,7 +188,10 @@ public class CreateAccount extends javax.swing.JFrame {
             String email_id = set_emailid_field.getText();
             String user_name =  set_username_field.getText();
             String password = set_password_field.getText();
-            int balance = 0,p=0;    
+            int balance = 0,p=0;  
+            
+            
+            //accessing user database
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -208,7 +211,7 @@ public class CreateAccount extends javax.swing.JFrame {
                         {
                             ;
                         }
-                        else if(name.charAt(i)<='z' && name.charAt(i)>='a')
+                        else if(name.charAt(i)<='Z' && name.charAt(i)>='A' )
                         {
                             ;
                         }
@@ -216,6 +219,7 @@ public class CreateAccount extends javax.swing.JFrame {
                         {
                             JOptionPane.showMessageDialog(null,"Please enter a valid name");
                             p=1;
+                            break;
                         }
                     }              
                     if(p==0)
@@ -289,6 +293,10 @@ public class CreateAccount extends javax.swing.JFrame {
                         }
                     }
                 }
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history","root","root");
+                Statement myStmt1 = myConn.createStatement();
+                myStmt1.executeUpdate("create table "+ user_name +"(pickup varchar(25), dropoff varchar(25), fare int)");
             }
             catch(Exception e)
             {
