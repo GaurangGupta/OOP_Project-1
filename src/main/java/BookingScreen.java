@@ -169,9 +169,19 @@ public class BookingScreen extends javax.swing.JFrame {
 
         dest_butt_group.add(loc_b_drop);
         loc_b_drop.setText("Gondor");
+        loc_b_drop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_b_dropActionPerformed(evt);
+            }
+        });
 
         dest_butt_group.add(loc_c_drop);
         loc_c_drop.setText("Isengard");
+        loc_c_drop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_c_dropActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Ride Type");
@@ -197,9 +207,19 @@ public class BookingScreen extends javax.swing.JFrame {
 
         dest_butt_group.add(loc_e_drop);
         loc_e_drop.setText("Helms Deep");
+        loc_e_drop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_e_dropActionPerformed(evt);
+            }
+        });
 
         dest_butt_group.add(loc_f_drop);
         loc_f_drop.setText("The Shire");
+        loc_f_drop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_f_dropActionPerformed(evt);
+            }
+        });
 
         loc_butt_group.add(loc_g_pick);
         loc_g_pick.setText("Mordor");
@@ -219,9 +239,19 @@ public class BookingScreen extends javax.swing.JFrame {
 
         dest_butt_group.add(loc_g_drop);
         loc_g_drop.setText("Mordor");
+        loc_g_drop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_g_dropActionPerformed(evt);
+            }
+        });
 
         dest_butt_group.add(loc_h_drop);
         loc_h_drop.setText("Moria");
+        loc_h_drop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loc_h_dropActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -323,14 +353,14 @@ public class BookingScreen extends javax.swing.JFrame {
                 .addComponent(jLabel6))
         );
 
-        loc_a_drop.setEnabled(false);
-        loc_b_drop.setEnabled(false);
-        loc_c_drop.setEnabled(false);
-        loc_d_drop.setEnabled(false);
-        loc_e_drop.setEnabled(false);
-        loc_f_drop.setEnabled(false);
-        loc_g_drop.setEnabled(false);
-        loc_h_drop.setEnabled(false);
+        //loc_a_drop.setEnabled(false);
+        //loc_b_drop.setEnabled(false);
+        //loc_c_drop.setEnabled(false);
+        //loc_d_drop.setEnabled(false);
+        //loc_e_drop.setEnabled(false);
+        //loc_f_drop.setEnabled(false);
+        //loc_g_drop.setEnabled(false);
+        //loc_h_drop.setEnabled(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -621,11 +651,100 @@ public class BookingScreen extends javax.swing.JFrame {
 
     private void loc_a_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_a_dropActionPerformed
         // TODO add your handling code here:
+        loc_b_pick.setEnabled(true);
+        loc_c_pick.setEnabled(true);
+        loc_d_pick.setEnabled(true);
+        loc_e_pick.setEnabled(true);
+        loc_f_pick.setEnabled(true);
+        loc_g_pick.setEnabled(true);
+        loc_h_pick.setEnabled(true);
+        loc_a_pick.setEnabled(false);
+        
     }//GEN-LAST:event_loc_a_dropActionPerformed
 
     private void loc_d_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_d_dropActionPerformed
         // TODO add your handling code here:
+        loc_b_pick.setEnabled(true);
+        loc_c_pick.setEnabled(true);
+        loc_a_pick.setEnabled(true);
+        loc_e_pick.setEnabled(true);
+        loc_f_pick.setEnabled(true);
+        loc_g_pick.setEnabled(true);
+        loc_h_pick.setEnabled(true);
+        loc_d_pick.setEnabled(false);
     }//GEN-LAST:event_loc_d_dropActionPerformed
+
+    private void loc_b_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_b_dropActionPerformed
+        // TODO add your handling code here:
+        loc_a_pick.setEnabled(true);
+        loc_c_pick.setEnabled(true);
+        loc_d_pick.setEnabled(true);
+        loc_e_pick.setEnabled(true);
+        loc_f_pick.setEnabled(true);
+        loc_g_pick.setEnabled(true);
+        loc_h_pick.setEnabled(true);
+        loc_b_pick.setEnabled(false);
+    }//GEN-LAST:event_loc_b_dropActionPerformed
+
+    private void loc_c_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_c_dropActionPerformed
+        // TODO add your handling code here:
+        loc_b_pick.setEnabled(true);
+        loc_a_pick.setEnabled(true);
+        loc_d_pick.setEnabled(true);
+        loc_e_pick.setEnabled(true);
+        loc_f_pick.setEnabled(true);
+        loc_g_pick.setEnabled(true);
+        loc_h_pick.setEnabled(true);
+        loc_c_pick.setEnabled(false);
+    }//GEN-LAST:event_loc_c_dropActionPerformed
+
+    private void loc_e_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_e_dropActionPerformed
+        // TODO add your handling code here:
+        loc_b_pick.setEnabled(true);
+        loc_c_pick.setEnabled(true);
+        loc_d_pick.setEnabled(true);
+        loc_a_pick.setEnabled(true);
+        loc_f_pick.setEnabled(true);
+        loc_g_pick.setEnabled(true);
+        loc_h_pick.setEnabled(true);
+        loc_e_pick.setEnabled(false);
+    }//GEN-LAST:event_loc_e_dropActionPerformed
+
+    private void loc_f_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_f_dropActionPerformed
+        // TODO add your handling code here:
+        loc_b_pick.setEnabled(true);
+        loc_c_pick.setEnabled(true);
+        loc_d_pick.setEnabled(true);
+        loc_e_pick.setEnabled(true);
+        loc_a_pick.setEnabled(true);
+        loc_g_pick.setEnabled(true);
+        loc_h_pick.setEnabled(true);
+        loc_f_pick.setEnabled(false);
+    }//GEN-LAST:event_loc_f_dropActionPerformed
+
+    private void loc_g_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_g_dropActionPerformed
+        // TODO add your handling code here:
+        loc_b_pick.setEnabled(true);
+        loc_c_pick.setEnabled(true);
+        loc_d_pick.setEnabled(true);
+        loc_e_pick.setEnabled(true);
+        loc_f_pick.setEnabled(true);
+        loc_a_pick.setEnabled(true);
+        loc_h_pick.setEnabled(true);
+        loc_g_pick.setEnabled(false);
+    }//GEN-LAST:event_loc_g_dropActionPerformed
+
+    private void loc_h_dropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loc_h_dropActionPerformed
+        // TODO add your handling code here:
+        loc_b_pick.setEnabled(true);
+        loc_c_pick.setEnabled(true);
+        loc_d_pick.setEnabled(true);
+        loc_e_pick.setEnabled(true);
+        loc_f_pick.setEnabled(true);
+        loc_g_pick.setEnabled(true);
+        loc_a_pick.setEnabled(true);
+        loc_h_pick.setEnabled(false);
+    }//GEN-LAST:event_loc_h_dropActionPerformed
 
     /**
      * @param args the command line arguments

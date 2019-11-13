@@ -270,7 +270,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_a_dropActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_a_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_a_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_b_drop">
@@ -280,8 +280,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Gondor"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_b_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_b_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_b_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_c_drop">
@@ -291,8 +294,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Isengard"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_c_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_c_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_c_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -335,7 +341,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_d_dropActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_d_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_d_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_e_drop">
@@ -345,8 +351,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Helms Deep"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_e_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_e_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_e_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_f_drop">
@@ -356,8 +365,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="The Shire"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_f_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_f_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_f_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_g_pick">
@@ -389,8 +401,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Mordor"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_g_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_g_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_g_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JRadioButton" name="loc_h_drop">
@@ -400,8 +415,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Moria"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_h_dropActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_h_drop.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//loc_h_drop.setEnabled(false);"/>
       </AuxValues>
     </Component>
   </SubComponents>
