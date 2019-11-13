@@ -92,7 +92,7 @@ public class DriverPage extends javax.swing.JFrame {
         coupon_code.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         coupon_code.setText("Coupon Code:");
 
-        verify_code.setText("Verify Code");
+        verify_code.setText("Verify & Apply Code");
         verify_code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verify_codeActionPerformed(evt);
@@ -134,10 +134,8 @@ public class DriverPage extends javax.swing.JFrame {
                                     .addComponent(jLabel1)
                                     .addGap(246, 246, 246))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(confirm_booking)
-                                        .addComponent(verify_code))
-                                    .addGap(73, 73, 73)))
+                                    .addComponent(confirm_booking)
+                                    .addGap(93, 93, 93)))
                             .addComponent(drop_loc_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +151,10 @@ public class DriverPage extends javax.swing.JFrame {
                                     .addComponent(final_fare, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(coupon_input, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(coupon_input, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(verify_code))
                                     .addComponent(final_fare_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -168,7 +169,7 @@ public class DriverPage extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(dri_rating_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(dri_name_val, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(195, Short.MAX_VALUE))))
+                        .addContainerGap(48, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,14 +221,26 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void confirm_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_bookingActionPerformed
         // TODO add your handling code here:
-        
-        // Change the driver status here to 1 and increase the number of trips and then continue
+   
         // Gaurang is adding the drivers ka refreshing algo here. So contact him for any problems;
         int tot_trips=0;
 	try
 	{
             Class.forName("com.mysql.jdbc.Driver");
             Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+            
+            //updating driver status -dev
+            Statement myStmt2 = myConn.createStatement();
+            ResultSet myRs2 = myStmt2.executeQuery("update drivers set cur_status = 1 where driver_name = '" + driver_name_g + "'");
+            
+            //updating driver number of trips -dev
+            Statement myStmt3 = myConn.createStatement();
+            ResultSet myRs3 = myStmt3.executeQuery("select * from driver where driver_name = '" + driver_name_g + "'");
+            int a = myRs3.getInt("num_trips") + 1;
+            Statement myStmt4 = myConn.createStatement();
+            ResultSet myRs4 = myStmt4.executeQuery("update drivers set num_trips = " + a + "where driver_name = '" + driver_name_g + "'");
+            
+            //gaurang's code
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from driver");
             while(myRs.next())
@@ -258,7 +271,7 @@ public class DriverPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         String a = coupon_input.getText();
         //JOptionPane.showMessageDialog (null,a);
-        String flag = "";
+        //String flag = "";
         double fare_temp = fare_g;
         //JOptionPane.showMessageDialog (null,String.valueOf(fare));
 //the value of fare is being picked from the constructor method

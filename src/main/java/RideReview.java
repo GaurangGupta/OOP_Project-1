@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 
 /*
@@ -17,6 +18,7 @@ import java.sql.Statement;
  */
 public class RideReview extends javax.swing.JFrame {
     
+    int flag = 1;
     double rating;
     String driver_name;
 
@@ -309,30 +311,41 @@ public class RideReview extends javax.swing.JFrame {
 
     private void rating_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rating_confirmActionPerformed
         // TODO add your handling code here:
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
-            Statement myStmt = myConn.createStatement();
-            ResultSet myRs = myStmt.executeQuery("select * from driver" );
-            while(myRs.next())
+        
+        if(flag == 1){
+            try
             {
-                if(myRs.getString("driver_name").equals(driver_name))
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+                Statement myStmt = myConn.createStatement();
+                ResultSet myRs = myStmt.executeQuery("select * from driver" );
+                while(myRs.next())
                 {
-                    double a = myRs.getDouble("rating");//previous rating
-                    int b = myRs.getInt("num_trips");//completed trips
-                    double c = (a * b + rating)/(b + 1);
-                    rating = c;
-                    break;
+                    if(myRs.getString("driver_name").equals(driver_name))
+                    {
+                        double a = myRs.getDouble("rating");//previous rating
+                        int b = myRs.getInt("num_trips");//completed trips
+                        double c = (a * b + rating)/(b + 1);
+                        rating = c;
+                        break;
+                    }
                 }
-            }
             
-            Statement myStmt1 = myConn.createStatement();
-            ResultSet myRs1 = myStmt1.executeQuery("update drivers set rating = " + rating + "where driver_name = '" + driver_name + "'");
+                Statement myStmt1 = myConn.createStatement();
+                ResultSet myRs1 = myStmt1.executeQuery("update drivers set rating = " + rating + "where driver_name = '" + driver_name + "'");
+            
+                Statement myStmt2 = myConn.createStatement();
+                ResultSet myRs2 = myStmt2.executeQuery("update drivers set cur_status = 0 where driver_name = '" + driver_name + "'");
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+            flag = 0;
         }
-        catch(Exception e)
+        else
         {
-            System.out.println(e);
+            JOptionPane.showMessageDialog (null,"Already rated once");
         }
     }//GEN-LAST:event_rating_confirmActionPerformed
 
