@@ -28,17 +28,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="time_elap" min="-2" pref="127" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="time_el_in" min="-2" pref="107" max="-2" attributes="0"/>
                               <EmptySpace pref="18" max="32767" attributes="0"/>
                               <Component id="time_rem" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="ongoing_ride_label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="time_rem_in" min="-2" pref="107" max="-2" attributes="0"/>
@@ -58,6 +58,11 @@
                   </Group>
               </Group>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="prog_bar" min="-2" pref="177" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -75,7 +80,9 @@
                   <Component id="to" min="-2" max="-2" attributes="0"/>
                   <Component id="to_in" min="-2" pref="49" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="149" max="32767" attributes="0"/>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <Component id="prog_bar" min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="time_rem" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -137,6 +144,11 @@
     <Component class="javax.swing.JLabel" name="time_el_in">
     </Component>
     <Component class="javax.swing.JLabel" name="time_rem_in">
+    </Component>
+    <Component class="javax.swing.JProgressBar" name="prog_bar">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="prog_bar.setForeground(Color.GREEN);&#xa;prog_bar.setBackground(Color.GREEN);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
