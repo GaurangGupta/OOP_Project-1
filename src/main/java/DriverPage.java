@@ -47,6 +47,12 @@ import javax.swing.JOptionPane;
         String carno="",carty="";
         try{
             Class.forName("com.mysql.jdbc.Driver");
+            Connection myConnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+            
+            //updating driver status -dev
+            Statement myStmt2 = myConnn.createStatement();
+            myStmt2.executeUpdate("update driver set cur_status = 1 where driver_name = '" + driver_name_g + "'");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from driver where driver_name ='"+driver_name+"'");
@@ -305,14 +311,11 @@ import javax.swing.JOptionPane;
         int tot_trips=0;
 	try
 	{
+            
             Class.forName("com.mysql.jdbc.Driver");
             Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
             
-            //updating driver status -dev
-            Statement myStmt2 = myConn.createStatement();
-            myStmt2.executeUpdate("update driver set cur_status = 1 where driver_name = '" + driver_name_g + "'");
-            
-            //updating driver number of trips -dev
+                        //updating driver number of trips -dev
             Statement myStmt3 = myConn.createStatement();
             ResultSet myRs3 = myStmt3.executeQuery("select * from driver where driver_name = '" + driver_name_g + "'");
             int a = 0;
@@ -397,6 +400,19 @@ import javax.swing.JOptionPane;
     }//GEN-LAST:event_verify_codeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+                Connection myConnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+
+                //updating driver status -dev
+                Statement myStmt2 = myConnn.createStatement();
+                myStmt2.executeUpdate("update driver set cur_status = 0 where driver_name = '" + driver_name_g + "'");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
         dispose();
         BookingScreen bk = new BookingScreen(user_id);
         bk.setVisible(true);// TODO add your handling code here:
