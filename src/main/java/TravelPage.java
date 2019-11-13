@@ -62,21 +62,21 @@ public class TravelPage extends javax.swing.JFrame {
 //    }
      String user_id;
      public TravelPage(String user_id, String start, String drop, String dri_name, int duration, int fare) {
-        
-        
-                     this.setContentPane(new JPanel()
-                {
-                    @Override
-                    public void paintComponent(Graphics g)
-                {
-                    super.paintComponent(g);
-                    g.drawImage(img, 0, 0, 700, 560, this);
-                }
-                });
-                     
-                     
-                     
-                System.out.println("Reached...1");     
+        this.user_id = user_id;
+        System.out.println("\n" + user_id + "\n");
+             this.setContentPane(new JPanel()
+        {
+            @Override
+            public void paintComponent(Graphics g)
+        {
+            super.paintComponent(g);
+            g.drawImage(img, 0, 0, 700, 560, this);
+        }
+        });
+
+
+
+        System.out.println("Reached...1");     
         setResizable(false);
         initComponents();
         

@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.sql.*;
 //import javax.swing.JOptionPane;
 
 /*
@@ -28,7 +29,7 @@ public class RideReview extends javax.swing.JFrame {
 
     
     public RideReview(String user_id, String start, String drop, String dri_name, int duration, int fare) {
-        
+        this.user_id = user_id;
         initComponents();
         start_in.setText(start);
         drop_in.setText(drop);
@@ -36,12 +37,42 @@ public class RideReview extends javax.swing.JFrame {
         driver_name = dri_name;
         duration_in.setText(""+duration);
         fare_in.setText(""+fare);
+        int new_bal = 0, balance = 0;
+        //updating balance - access user database
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+            
+            System.out.println("\n" + user_id + "\n");
+            //get the previous balance
+            Statement myStmt = myConn.createStatement();
+            ResultSet myRs = myStmt.executeQuery("select * from userdata where id = '" + user_id + "'");
+            System.out.println(user_id + " " + balance + " " + new_bal);
+            while(myRs.next()){
+                balance = myRs.getInt("balance");
+            }
+            
+            //calculate the new balance
+            new_bal = balance - fare;
+            System.out.println(user_id + " " + balance + " " + new_bal);
+            //update new balance in database
+            Statement myStmt1 = myConn.createStatement();
+            myStmt1.executeUpdate("update userdata set balance = " + new_bal + " where id = '" + user_id + "'");
         
-        //updating balance
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Error while accessing user database updating balance");
+        }
+        rating_confirm.setEnabled(false);
+        
+        
+        
+        //updating cur_status
         try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
                 
             
 //                Statement myStmt1 = myConn.createStatement();
@@ -52,7 +83,7 @@ public class RideReview extends javax.swing.JFrame {
             }
             catch(Exception e)
             {
-                System.out.println(e);
+                System.out.println("Error while accessing driver database updating status of driver");
             }
     }
 
@@ -273,6 +304,7 @@ public class RideReview extends javax.swing.JFrame {
         if(one_star.isSelected())
         {
             rating = 1;
+            rating_confirm.setEnabled(true);
             //JOptionPane.showMessageDialog (null,rating);
         }
     }//GEN-LAST:event_one_starActionPerformed
@@ -282,6 +314,7 @@ public class RideReview extends javax.swing.JFrame {
         if(two_star.isSelected())
         {
             rating = 2;
+            rating_confirm.setEnabled(true);
             //JOptionPane.showMessageDialog (null,rating);
         }
     }//GEN-LAST:event_two_starActionPerformed
@@ -290,7 +323,7 @@ public class RideReview extends javax.swing.JFrame {
         int balance = 0;
         try{    
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
             
@@ -325,6 +358,7 @@ public class RideReview extends javax.swing.JFrame {
         if(three_star.isSelected())
         {
             rating = 3;
+            rating_confirm.setEnabled(true);
             //JOptionPane.showMessageDialog (null,rating);
         }
     }//GEN-LAST:event_three_starActionPerformed
@@ -334,6 +368,7 @@ public class RideReview extends javax.swing.JFrame {
         if(four_star.isSelected())
         {
             rating = 4;
+            rating_confirm.setEnabled(true);
             //JOptionPane.showMessageDialog (null,rating);
         }
     }//GEN-LAST:event_four_starActionPerformed
@@ -343,6 +378,7 @@ public class RideReview extends javax.swing.JFrame {
         if(five_star.isSelected())
         {
             rating = 5;
+            rating_confirm.setEnabled(true);
             //JOptionPane.showMessageDialog (null,rating);
         }
     }//GEN-LAST:event_five_starActionPerformed
@@ -354,7 +390,7 @@ public class RideReview extends javax.swing.JFrame {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
                 Statement myStmt = myConn.createStatement();
                 ResultSet myRs = myStmt.executeQuery("select * from driver" );
                 while(myRs.next())
@@ -380,7 +416,7 @@ public class RideReview extends javax.swing.JFrame {
                 System.out.println(e);
             }
             rating_confirm.setEnabled(false);
-        
+            JOptionPane.showMessageDialog(null,"Thank you for your feedback");
     }//GEN-LAST:event_rating_confirmActionPerformed
 
     /**

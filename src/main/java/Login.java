@@ -185,8 +185,8 @@ public class Login extends javax.swing.JFrame {
             String tpass = password_field.getText();
             String tname = username_textfield.getText();
             try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+//            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from userdata");
             int balance = 0;

@@ -23,6 +23,8 @@ import javax.swing.JOptionPane;
 
         setResizable(false);
         initComponents();
+        this.user_id = user_id;
+        System.out.println("\n" + user_id + "\n");
         final_fare_val.setFont(new java.awt.Font("Dialog", 1, 24));
         final_fare_val.setText("" + fare + "");
         fare_g = fare;
@@ -240,7 +242,7 @@ import javax.swing.JOptionPane;
 	try
 	{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
             
             //updating driver status -dev
             Statement myStmt2 = myConn.createStatement();
@@ -300,7 +302,7 @@ import javax.swing.JOptionPane;
         {
             int p=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coupon?characterEncoding=latin1","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coupon","root","root");
             Statement myStmt = myConn.createStatement();
             ResultSet myRss = myStmt.executeQuery("select * from coup_details" );
             while(myRss.next())

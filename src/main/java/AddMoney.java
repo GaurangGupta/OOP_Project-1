@@ -185,7 +185,7 @@ public class AddMoney extends javax.swing.JFrame {
 //                    Class.forName("com.mysql.jdbc.Driver"); 
 
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
                 Statement myStt = myConn.createStatement();
                 ResultSet myRs = myStt.executeQuery("select balance from userdata where id = user_id");
                 //String phone_number = set_phone_number_field.getText();

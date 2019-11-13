@@ -192,7 +192,7 @@ public class CreateAccount extends javax.swing.JFrame {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                Connection myConnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
                 Statement mySttmt = myConnn.createStatement();
                 ResultSet mytRs = mySttmt.executeQuery("select * from userdata where id= '"+user_name+"'" );
                 if(mytRs.next())
@@ -257,7 +257,7 @@ public class CreateAccount extends javax.swing.JFrame {
             //                    Class.forName("com.mysql.jdbc.Driver"); 
 
                                 Class.forName("com.mysql.jdbc.Driver");
-                                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
 
                                 String query = " insert into userdata (name, id, phone, email, password, balance)"+ " values (?, ?, ?, ?, ?, ?)";
 

@@ -22,6 +22,8 @@ public class BookingScreen extends javax.swing.JFrame {
     
     Image img = Toolkit.getDefaultToolkit().getImage("F:\\map.jpg");
     public BookingScreen(String user_id) {
+        this.user_id = user_id;
+        System.out.println("got this id in booking screen\n" + user_id + "\n");
         this.setContentPane(new JPanel()
                 {
                     @Override
@@ -31,19 +33,21 @@ public class BookingScreen extends javax.swing.JFrame {
                     g.drawImage(img, 0, 0, 758, 560, this);
                 }
                 });
+        initComponents();
         setResizable(false);
+        
         try{
-        loc_a_drop.setEnabled(false);
-        loc_b_drop.setEnabled(false);
-        loc_c_drop.setEnabled(false);
-        loc_d_drop.setEnabled(false);
-        loc_e_drop.setEnabled(false);
-        loc_f_drop.setEnabled(false);
-        loc_g_drop.setEnabled(false);
-        loc_h_drop.setEnabled(false);
+            loc_a_drop.setEnabled(false);
+            loc_b_drop.setEnabled(false);
+            loc_c_drop.setEnabled(false);
+            loc_d_drop.setEnabled(false);
+            loc_e_drop.setEnabled(false);
+            loc_f_drop.setEnabled(false);
+            loc_g_drop.setEnabled(false);
+            loc_h_drop.setEnabled(false);
         }
         catch (Exception e){}
-        initComponents();
+        
     }
     
 
@@ -366,6 +370,7 @@ public class BookingScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void book_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_book_buttonActionPerformed
+        System.out.println("inside button value of id is : " + user_id + "\n");
         int pickupid = 0;
         if(loc_a_pick.isSelected()){
             pickupid = 1;
@@ -472,7 +477,7 @@ public class BookingScreen extends javax.swing.JFrame {
             //retrieve values from locations database
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/locations?characterEncoding=latin1","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/locations","root","root");
                 Statement myStmt = myConn.createStatement();
                 ResultSet myRs = myStmt.executeQuery("select * from distances");
                 while(myRs.next())
@@ -491,7 +496,7 @@ public class BookingScreen extends javax.swing.JFrame {
             float temp_rating = 0;
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
                 Statement myStmt = myConn.createStatement();
                 ResultSet myRs = myStmt.executeQuery("select * from driver");
 //                ResultSet myRs = myStmt.executeQuery("select max(rating) from driver where ");
@@ -525,6 +530,7 @@ public class BookingScreen extends javax.swing.JFrame {
             catch(Exception e){
                 System.out.println(e);
             }
+            System.out.println("passing following id from booking screen page\np" + user_id + "\n");
 //            System.out.println(pickup + " " + drop + " " + driver_name + " " + driver_rating + " " + fare);
             dispose();
             DriverPage dp = new DriverPage(user_id, pickup, drop, fare, driver_name, driver_rating);
