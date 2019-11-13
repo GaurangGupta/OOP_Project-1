@@ -22,7 +22,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\logo.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\logo.jpg");
     
     public Login() {
         this.setContentPane(new JPanel()

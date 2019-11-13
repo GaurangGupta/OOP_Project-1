@@ -208,7 +208,7 @@ public class CreateAccount extends javax.swing.JFrame {
                         {
                             ;
                         }
-                        else if(name.charAt(i)<='z' && name.charAt(i)>='a')
+                        else if(name.charAt(i)<='Z' && name.charAt(i)>='A')
                         {
                             ;
                         }
@@ -216,6 +216,7 @@ public class CreateAccount extends javax.swing.JFrame {
                         {
                             JOptionPane.showMessageDialog(null,"Please enter a valid name");
                             p=1;
+                            break;
                         }
                     }              
                     if(p==0)
