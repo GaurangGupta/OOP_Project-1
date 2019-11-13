@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,9 +25,26 @@ public class AddMoney extends javax.swing.JFrame {
      * Creates new form AddMoney
      */
     Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\bg1.jpg");
-    String user_id;
-    public AddMoney() {
-        this.setContentPane(new JPanel()
+    String user_idd;
+    int cur_baa;
+  //  public AddMoney() {
+//        
+//        this.setContentPane(new JPanel()
+//                {
+//                    @Override
+//                    public void paintComponent(Graphics g)
+//                {
+//                    super.paintComponent(g);
+//                    g.drawImage(img, 0, 0, 700, 560, this);
+//                }
+//                });
+//        setResizable(false);
+//        initComponents();
+//         
+//    }
+    public AddMoney(String user_id,int bal) {
+        //System.out.println("HI"+bal);
+        setResizable(false);this.setContentPane(new JPanel()
                 {
                     @Override
                     public void paintComponent(Graphics g)
@@ -37,11 +55,11 @@ public class AddMoney extends javax.swing.JFrame {
                 });
         setResizable(false);
         initComponents();
-    }
-    public AddMoney(String user_id) {
-        setResizable(false);
-        initComponents();
-    }
+        cur_baa=bal;
+        user_idd=user_id;
+        bal_cur.setText(""+bal);
+        bal_cur.setEditable(false);
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,13 +75,15 @@ public class AddMoney extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        card_num = new javax.swing.JTextField();
+        bal_cur = new javax.swing.JTextField();
         doe = new javax.swing.JTextField();
         cvv = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         doe1 = new javax.swing.JTextField();
-        doe2 = new javax.swing.JTextField();
         max_bal = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        card_num1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,7 +103,13 @@ public class AddMoney extends javax.swing.JFrame {
         jLabel3.setText("CVV");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Date of Expiry");
+        jLabel4.setText("Date of Expiry (MM/YY)");
+
+        bal_cur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bal_curActionPerformed(evt);
+            }
+        });
 
         doe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,119 +130,219 @@ public class AddMoney extends javax.swing.JFrame {
             }
         });
 
-        doe2.setText("/");
-        doe2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doe2ActionPerformed(evt);
-            }
-        });
-
         max_bal.setText("Maximum wallet balance is 5000");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("/");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setText("Current Balance: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(282, 282, 282))
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(max_bal)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(292, 292, 292)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(max_bal)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel6))
+                        .addGap(156, 156, 156)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(card_num, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(add_money, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cvv, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(doe, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(doe, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(doe2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(doe1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(209, 209, 209))))
+                                .addComponent(doe1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bal_cur, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(143, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(483, Short.MAX_VALUE)
+                    .addComponent(card_num1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(146, 146, 146)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_money, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(max_bal)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(card_num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(doe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(doe1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(doe2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cvv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addComponent(bal_cur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(max_bal)
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel2)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel4)
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(add_money, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(doe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(doe1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(57, 57, 57)
+                        .addComponent(cvv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(97, 97, 97)
                 .addComponent(jButton1)
-                .addGap(80, 80, 80))
+                .addGap(30, 30, 30))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(227, 227, 227)
+                    .addComponent(card_num1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(297, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int money = Integer.parseInt(add_money.getText()); 
-        String user_name = "";
-        try{
-//                    Class.forName("com.mysql.jdbc.Driver"); 
-
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
-                Statement myStt = myConn.createStatement();
-                ResultSet myRs = myStt.executeQuery("select balance from userdata where id = user_id");
-                //String phone_number = set_phone_number_field.getText();
-            
-                int cur=0;
-                if(myRs.next())
+        if (add_money.getText().equals("") || bal_cur.getText().equals("") || doe.getText().equals("") || doe1.getText().equals("") || cvv.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Please fill all the entries");
+        }
+        else
+        {
+            int p=0;
+            String amt = add_money.getText();
+            String cno = card_num1.getText();
+            String mon= doe.getText();
+            String yr= doe1.getText();
+            String cv = cvv.getText();
+            for(int i=0;i<amt.length();i++)
+            {
+                if(amt.charAt(i)<'0' || amt.charAt(i)>'9')
                 {
-                    cur = myRs.getInt("balance");
+                    p=1;
+                    break;
                 }
-
-                String query = "update userdata set balance = ? where id = ?";
-                PreparedStatement myStmt = myConn.prepareStatement(query);
-                myStmt.setInt(1,money+cur);
-                myStmt.setString(2,user_id);
-
-                myStmt.execute();
-//                    ResultSet myRs = myStmt.executeQuery("select * from learner");
-    //            ResultSet myRs1 = myStmt.executeQuery("insert into learner values(2,002,'Gaurang Gupta')");
-
-
-//                    while(myRs.next()){
-//                        System.out.println(myRs.getString("name"));
-//                    }
-                myConn.close();
-                dispose();
-                MainFrame mframe = new MainFrame(user_id,money+cur);
-                mframe.setVisible(true);
             }
-            catch(Exception e){
-                System.out.println(e);
+            if(p==1)
+            {
+               JOptionPane.showMessageDialog(null,"Please enter a valid amount"); 
             }
+            else
+            {
+                for(int i=0;i<cno.length();i++)
+                {
+                    if(cno.charAt(i)<'0' || cno.charAt(i)>'9')
+                    {
+                        p=1;
+                        break;
+                    }
+                }
+                if(p==1)
+                {
+                   JOptionPane.showMessageDialog(null,"Please enter a valid card number"); 
+                }
+                else
+                {
+                    for(int i=0;i<mon.length();i++)
+                    {
+                        if(amt.charAt(i)<'0' || amt.charAt(i)>'9')
+                        {
+                            p=1;
+                            break;
+                        }
+                    }
+                    int monn=Integer.parseInt(mon);
+                    if(monn>12)
+                    {
+                        p=1;
+                    }
+                    if(p==1)
+                    {
+                       JOptionPane.showMessageDialog(null,"Please enter a valid month"); 
+                    }
+                    else
+                    {
+                        for(int i=0;i<yr.length();i++)
+                        {
+                            if(yr.charAt(i)<'0' || yr.charAt(i)>'9')
+                            {
+                                p=1;
+                                break;
+                            }
+                        }
+                        int yer=Integer.parseInt(yr);
+                        if(yer<19 || yer>99)
+                        {
+                            p=1;
+                        }
+                        else if(yer==19 && monn<11)
+                        {
+                            p=1;
+                        }
+                        if(p==1)
+                        {
+                           JOptionPane.showMessageDialog(null,"Please enter a valid year"); 
+                        }
+                        else
+                        {
+                            for(int i=0;i<cv.length();i++)
+                            {
+                                if(cv.charAt(i)<'0' || cv.charAt(i)>'9')
+                                {
+                                    p=1;
+                                    break;
+                                }
+                            }
+                            if(p==1)
+                            {
+                               JOptionPane.showMessageDialog(null,"Please enter a valid cvv"); 
+                            }
+                            else
+                            {
+                                int add_ba=Integer.parseInt(amt);
+                                if(add_ba+cur_baa>5000)
+                                {
+                                    JOptionPane.showMessageDialog(null,"Wallet balance can't be more than 5000");
+                                    p=1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if(p==0)
+            {
+                try
+                {
+                    int add_ba=Integer.parseInt(amt);
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                    Statement myStt = myConn.createStatement();
+                    myStt.executeUpdate("update userdata set balance = "+ (add_ba+cur_baa) +" where id= '"+user_idd+"'");
+                    dispose();
+                    MainFrame mf = new MainFrame(user_idd,add_ba+cur_baa);
+                    mf.setVisible(true);
+                    
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void add_moneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_moneyActionPerformed
@@ -231,57 +357,59 @@ public class AddMoney extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_doe1ActionPerformed
 
-    private void doe2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doe2ActionPerformed
+    private void bal_curActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bal_curActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_doe2ActionPerformed
+    }//GEN-LAST:event_bal_curActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddMoney().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(AddMoney.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new AddMoney().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField add_money;
-    private javax.swing.JTextField card_num;
+    private javax.swing.JTextField bal_cur;
+    private javax.swing.JTextField card_num1;
     private javax.swing.JPasswordField cvv;
     private javax.swing.JTextField doe;
     private javax.swing.JTextField doe1;
-    private javax.swing.JTextField doe2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel max_bal;
     // End of variables declaration//GEN-END:variables
 }

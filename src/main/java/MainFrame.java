@@ -48,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
                 });
         setResizable(false);
         initComponents();
+        this.balance=balance;
         bal_in.setText("" + balance);
     }
 
@@ -149,7 +150,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
-        AddMoney am = new AddMoney(user_id);
+        AddMoney am = new AddMoney(user_id,balance);
         am.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -181,7 +182,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(balance < 300){
             JOptionPane.showMessageDialog(null,"Please maintain sufficient funds before booking");
             dispose();
-            AddMoney am = new AddMoney(user_id);
+            AddMoney am = new AddMoney(user_id,balance);
             am.setVisible(true);
         }
         else{
