@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -23,7 +24,7 @@ public class TravelPage extends javax.swing.JFrame {
     /**
      * Creates new form TravelPage
      */
-    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
+    //Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Projectmap_bg1.jpg");
 //    public TravelPage() {
 //             this.setContentPane(new JPanel()
 //                {
@@ -61,6 +62,7 @@ public class TravelPage extends javax.swing.JFrame {
 //        
 //    }
      String user_id;
+     Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Projectmap_bg1.jpg");
      public TravelPage(String user_id, String start, String drop, String dri_name, int duration, int fare) {
         
         
@@ -80,6 +82,10 @@ public class TravelPage extends javax.swing.JFrame {
         setResizable(false);
         initComponents();
         
+        prog_bar.setMaximum(duration);
+        prog_bar.setMinimum(0);
+        prog_bar.setBackground(Color.pink);
+        prog_bar.setForeground(Color.pink);
         from_in.setText(start);
         time_left=duration;
         to_in.setText(drop);
@@ -97,6 +103,9 @@ public class TravelPage extends javax.swing.JFrame {
                 time_done++;
                 time_rem_in.setText(""+time_left);
                 time_left--;
+                prog_bar.setBackground(Color.green);
+                prog_bar.setForeground(Color.green);
+                prog_bar.setValue(time_done);
                 if(time_left == -1)
                 {
                     dispose();
@@ -126,6 +135,7 @@ public class TravelPage extends javax.swing.JFrame {
         to_in = new javax.swing.JLabel();
         time_el_in = new javax.swing.JLabel();
         time_rem_in = new javax.swing.JLabel();
+        prog_bar = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,16 +163,16 @@ public class TravelPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ongoing_ride_label)
-                                .addGap(80, 80, 80))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(time_elap, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(time_el_in, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addComponent(time_rem)
-                                .addGap(61, 61, 61)))
+                                .addGap(61, 61, 61))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ongoing_ride_label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(time_rem_in, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73))
                     .addGroup(layout.createSequentialGroup()
@@ -174,6 +184,10 @@ public class TravelPage extends javax.swing.JFrame {
                             .addComponent(from_in, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                             .addComponent(to_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(prog_bar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(256, 256, 256))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +202,9 @@ public class TravelPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(to)
                     .addComponent(to_in, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(prog_bar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(time_rem)
@@ -197,6 +213,9 @@ public class TravelPage extends javax.swing.JFrame {
                     .addComponent(time_el_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(117, 117, 117))
         );
+
+        prog_bar.setForeground(Color.GREEN);
+        prog_bar.setBackground(Color.GREEN);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -241,6 +260,7 @@ public class TravelPage extends javax.swing.JFrame {
     private javax.swing.JLabel from;
     private javax.swing.JLabel from_in;
     private javax.swing.JLabel ongoing_ride_label;
+    private javax.swing.JProgressBar prog_bar;
     private javax.swing.JLabel time_el_in;
     private javax.swing.JLabel time_elap;
     private javax.swing.JLabel time_rem;
