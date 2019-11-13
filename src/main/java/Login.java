@@ -172,7 +172,7 @@ public class Login extends javax.swing.JFrame {
 
     private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+       System.exit(0);
     }//GEN-LAST:event_exit_buttonActionPerformed
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
@@ -209,6 +209,17 @@ public class Login extends javax.swing.JFrame {
                                     }
                                     else
                                     {
+                                        try
+                                        {
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            Connection myConnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                                            Statement myStmmt = myConnn.createStatement();
+                                            myStmmt.executeUpdate("update userdata set logged_in = 1 where id = '" + tname + "'");
+                                        }
+                                        catch(Exception e)
+                                        {
+                                           System.out.println(e);
+                                        }
                                         balance = myRs.getInt("balance");
                                         p=1;
                                         dispose();
