@@ -109,7 +109,7 @@ public class BookingScreen extends javax.swing.JFrame {
         jLabel2.setText("Pick-Up Location");
 
         loc_butt_group.add(loc_a_pick);
-        loc_a_pick.setText("Location A");
+        loc_a_pick.setText("Eriador");
         loc_a_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_a_pickActionPerformed(evt);
@@ -117,7 +117,7 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         loc_butt_group.add(loc_b_pick);
-        loc_b_pick.setText("Location B");
+        loc_b_pick.setText("Gondor");
         loc_b_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_b_pickActionPerformed(evt);
@@ -125,7 +125,7 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         loc_butt_group.add(loc_c_pick);
-        loc_c_pick.setText("Location C");
+        loc_c_pick.setText("Isengard");
         loc_c_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_c_pickActionPerformed(evt);
@@ -133,7 +133,7 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         loc_butt_group.add(loc_d_pick);
-        loc_d_pick.setText("Location D");
+        loc_d_pick.setText("Rohan");
         loc_d_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_d_pickActionPerformed(evt);
@@ -141,7 +141,7 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         loc_butt_group.add(loc_e_pick);
-        loc_e_pick.setText("Location E");
+        loc_e_pick.setText("Helms Deep");
         loc_e_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_e_pickActionPerformed(evt);
@@ -149,7 +149,7 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         loc_butt_group.add(loc_f_pick);
-        loc_f_pick.setText("Location F");
+        loc_f_pick.setText("The Shire");
         loc_f_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_f_pickActionPerformed(evt);
@@ -160,7 +160,7 @@ public class BookingScreen extends javax.swing.JFrame {
         jLabel3.setText("Drop Location");
 
         dest_butt_group.add(loc_a_drop);
-        loc_a_drop.setText("Location A");
+        loc_a_drop.setText("Eriador");
         loc_a_drop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_a_dropActionPerformed(evt);
@@ -168,10 +168,10 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         dest_butt_group.add(loc_b_drop);
-        loc_b_drop.setText("Location B");
+        loc_b_drop.setText("Gondor");
 
         dest_butt_group.add(loc_c_drop);
-        loc_c_drop.setText("Location C");
+        loc_c_drop.setText("Isengard");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Ride Type");
@@ -188,7 +188,7 @@ public class BookingScreen extends javax.swing.JFrame {
         car_suv.setText("SUV");
 
         dest_butt_group.add(loc_d_drop);
-        loc_d_drop.setText("Location D");
+        loc_d_drop.setText("Rohan");
         loc_d_drop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_d_dropActionPerformed(evt);
@@ -196,13 +196,13 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         dest_butt_group.add(loc_e_drop);
-        loc_e_drop.setText("Location E");
+        loc_e_drop.setText("Helms Deep");
 
         dest_butt_group.add(loc_f_drop);
-        loc_f_drop.setText("Location F");
+        loc_f_drop.setText("The Shire");
 
         loc_butt_group.add(loc_g_pick);
-        loc_g_pick.setText("Location G");
+        loc_g_pick.setText("Mordor");
         loc_g_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_g_pickActionPerformed(evt);
@@ -210,7 +210,7 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         loc_butt_group.add(loc_h_pick);
-        loc_h_pick.setText("Location H");
+        loc_h_pick.setText("Moria");
         loc_h_pick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loc_h_pickActionPerformed(evt);
@@ -218,10 +218,10 @@ public class BookingScreen extends javax.swing.JFrame {
         });
 
         dest_butt_group.add(loc_g_drop);
-        loc_g_drop.setText("Location G");
+        loc_g_drop.setText("Mordor");
 
         dest_butt_group.add(loc_h_drop);
-        loc_h_drop.setText("Location H");
+        loc_h_drop.setText("Moria");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -42,6 +42,8 @@
                       <Component id="four_star" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="five_star" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="rating_confirm" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -52,7 +54,7 @@
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="trip_duration" alignment="0" max="32767" attributes="0"/>
                               <Component id="driver_pre_rating" alignment="0" max="32767" attributes="0"/>
-                              <Component id="driver_name" alignment="0" max="32767" attributes="0"/>
+                              <Component id="label123" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -72,7 +74,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="303" max="32767" attributes="0"/>
+              <EmptySpace pref="197" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
@@ -105,7 +107,7 @@
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="driver_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label123" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="name_in" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -126,6 +128,7 @@
                   <Component id="three_star" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="four_star" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="five_star" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rating_confirm" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -162,7 +165,7 @@
         <Property name="text" type="java.lang.String" value="Dropping Point:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="driver_name">
+    <Component class="javax.swing.JLabel" name="label123">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="1"/>
@@ -223,6 +226,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="three_starActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="four_star">
       <Properties>
@@ -231,6 +237,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="four_starActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="five_star">
       <Properties>
@@ -239,6 +248,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="five_starActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="exit">
       <Properties>
@@ -265,6 +277,14 @@
     <Component class="javax.swing.JLabel" name="fare_in">
     </Component>
     <Component class="javax.swing.JLabel" name="duration_in">
+    </Component>
+    <Component class="javax.swing.JButton" name="rating_confirm">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Confrm"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rating_confirmActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

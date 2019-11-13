@@ -261,7 +261,7 @@ public class DriverPage extends javax.swing.JFrame {
         String flag = "";
         double fare_temp = fare_g;
         //JOptionPane.showMessageDialog (null,String.valueOf(fare));
-//the value of fare is not being picked from the constructor method
+//the value of fare is being picked from the constructor method
         
         try
         {

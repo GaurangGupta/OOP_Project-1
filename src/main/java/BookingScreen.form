@@ -190,7 +190,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location A"/>
+        <Property name="text" type="java.lang.String" value="Eriador"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_a_pickActionPerformed"/>
@@ -201,7 +201,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location B"/>
+        <Property name="text" type="java.lang.String" value="Gondor"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_b_pickActionPerformed"/>
@@ -212,7 +212,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location C"/>
+        <Property name="text" type="java.lang.String" value="Isengard"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_c_pickActionPerformed"/>
@@ -223,7 +223,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location D"/>
+        <Property name="text" type="java.lang.String" value="Rohan"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_d_pickActionPerformed"/>
@@ -234,7 +234,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location E"/>
+        <Property name="text" type="java.lang.String" value="Helms Deep"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_e_pickActionPerformed"/>
@@ -245,7 +245,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location F"/>
+        <Property name="text" type="java.lang.String" value="The Shire"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_f_pickActionPerformed"/>
@@ -264,7 +264,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location A"/>
+        <Property name="text" type="java.lang.String" value="Eriador"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_a_dropActionPerformed"/>
@@ -278,7 +278,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location B"/>
+        <Property name="text" type="java.lang.String" value="Gondor"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_b_drop.setEnabled(false);"/>
@@ -289,7 +289,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location C"/>
+        <Property name="text" type="java.lang.String" value="Isengard"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_c_drop.setEnabled(false);"/>
@@ -329,7 +329,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location D"/>
+        <Property name="text" type="java.lang.String" value="Rohan"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_d_dropActionPerformed"/>
@@ -343,7 +343,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location E"/>
+        <Property name="text" type="java.lang.String" value="Helms Deep"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_e_drop.setEnabled(false);"/>
@@ -354,7 +354,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location F"/>
+        <Property name="text" type="java.lang.String" value="The Shire"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_f_drop.setEnabled(false);"/>
@@ -365,7 +365,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location G"/>
+        <Property name="text" type="java.lang.String" value="Mordor"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_g_pickActionPerformed"/>
@@ -376,7 +376,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="loc_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location H"/>
+        <Property name="text" type="java.lang.String" value="Moria"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loc_h_pickActionPerformed"/>
@@ -387,7 +387,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location G"/>
+        <Property name="text" type="java.lang.String" value="Mordor"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_g_drop.setEnabled(false);"/>
@@ -398,7 +398,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="dest_butt_group"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location H"/>
+        <Property name="text" type="java.lang.String" value="Moria"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="loc_h_drop.setEnabled(false);"/>

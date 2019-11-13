@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+//import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,6 +16,9 @@
  * @author rushi
  */
 public class RideReview extends javax.swing.JFrame {
+    
+    double rating;
+    String driver_name;
 
     /**
      * Creates new form RideReview
@@ -21,6 +31,7 @@ public class RideReview extends javax.swing.JFrame {
         start_in.setText(start);
         drop_in.setText(drop);
         name_in.setText(dri_name);
+        driver_name = dri_name;
         duration_in.setText(""+duration);
         fare_in.setText(""+fare);
         initComponents();
@@ -39,7 +50,7 @@ public class RideReview extends javax.swing.JFrame {
         ride_review = new javax.swing.JLabel();
         starting_point = new javax.swing.JLabel();
         dropping_point = new javax.swing.JLabel();
-        driver_name = new javax.swing.JLabel();
+        label123 = new javax.swing.JLabel();
         driver_pre_rating = new javax.swing.JLabel();
         trip_duration = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -55,6 +66,7 @@ public class RideReview extends javax.swing.JFrame {
         name_in = new javax.swing.JLabel();
         fare_in = new javax.swing.JLabel();
         duration_in = new javax.swing.JLabel();
+        rating_confirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,8 +79,8 @@ public class RideReview extends javax.swing.JFrame {
         dropping_point.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         dropping_point.setText("Dropping Point:");
 
-        driver_name.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        driver_name.setText("Driver Name:");
+        label123.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label123.setText("Driver Name:");
 
         driver_pre_rating.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         driver_pre_rating.setText("Fare:");
@@ -97,12 +109,27 @@ public class RideReview extends javax.swing.JFrame {
 
         driver_rating.add(three_star);
         three_star.setText("3");
+        three_star.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                three_starActionPerformed(evt);
+            }
+        });
 
         driver_rating.add(four_star);
         four_star.setText("4");
+        four_star.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                four_starActionPerformed(evt);
+            }
+        });
 
         driver_rating.add(five_star);
         five_star.setText("5");
+        five_star.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                five_starActionPerformed(evt);
+            }
+        });
 
         exit.setText("Exit");
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +142,13 @@ public class RideReview extends javax.swing.JFrame {
         back_to_main.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_to_mainActionPerformed(evt);
+            }
+        });
+
+        rating_confirm.setText("Confrm");
+        rating_confirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rating_confirmActionPerformed(evt);
             }
         });
 
@@ -136,7 +170,9 @@ public class RideReview extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(four_star)
                         .addGap(18, 18, 18)
-                        .addComponent(five_star))
+                        .addComponent(five_star)
+                        .addGap(58, 58, 58)
+                        .addComponent(rating_confirm))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -145,7 +181,7 @@ public class RideReview extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(trip_duration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(driver_pre_rating, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(driver_name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(label123, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
@@ -157,7 +193,7 @@ public class RideReview extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(duration_in, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addComponent(back_to_main)
@@ -184,7 +220,7 @@ public class RideReview extends javax.swing.JFrame {
                     .addComponent(drop_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(driver_name)
+                    .addComponent(label123)
                     .addComponent(name_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -201,7 +237,8 @@ public class RideReview extends javax.swing.JFrame {
                     .addComponent(two_star)
                     .addComponent(three_star)
                     .addComponent(four_star)
-                    .addComponent(five_star))
+                    .addComponent(five_star)
+                    .addComponent(rating_confirm))
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back_to_main)
@@ -214,10 +251,20 @@ public class RideReview extends javax.swing.JFrame {
 
     private void one_starActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_one_starActionPerformed
         // TODO add your handling code here:
+        if(one_star.isSelected())
+        {
+            rating = 1;
+            //JOptionPane.showMessageDialog (null,rating);
+        }
     }//GEN-LAST:event_one_starActionPerformed
 
     private void two_starActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_two_starActionPerformed
         // TODO add your handling code here:
+        if(two_star.isSelected())
+        {
+            rating = 2;
+            //JOptionPane.showMessageDialog (null,rating);
+        }
     }//GEN-LAST:event_two_starActionPerformed
 
     private void back_to_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_to_mainActionPerformed
@@ -232,6 +279,62 @@ public class RideReview extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
+
+    private void three_starActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_three_starActionPerformed
+        // TODO add your handling code here:
+        if(three_star.isSelected())
+        {
+            rating = 3;
+            //JOptionPane.showMessageDialog (null,rating);
+        }
+    }//GEN-LAST:event_three_starActionPerformed
+
+    private void four_starActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_four_starActionPerformed
+        // TODO add your handling code here:
+        if(four_star.isSelected())
+        {
+            rating = 4;
+            //JOptionPane.showMessageDialog (null,rating);
+        }
+    }//GEN-LAST:event_four_starActionPerformed
+
+    private void five_starActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_five_starActionPerformed
+        // TODO add your handling code here:
+        if(five_star.isSelected())
+        {
+            rating = 5;
+            //JOptionPane.showMessageDialog (null,rating);
+        }
+    }//GEN-LAST:event_five_starActionPerformed
+
+    private void rating_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rating_confirmActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+            Statement myStmt = myConn.createStatement();
+            ResultSet myRs = myStmt.executeQuery("select * from driver" );
+            while(myRs.next())
+            {
+                if(myRs.getString("driver_name").equals(driver_name))
+                {
+                    double a = myRs.getDouble("rating");//previous rating
+                    int b = myRs.getInt("num_trips");//completed trips
+                    double c = (a * b + rating)/(b + 1);
+                    rating = c;
+                    break;
+                }
+            }
+            
+            Statement myStmt1 = myConn.createStatement();
+            ResultSet myRs1 = myStmt1.executeQuery("update drivers set rating = " + rating + "where driver_name = '" + driver_name + "'");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_rating_confirmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,7 +373,6 @@ public class RideReview extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_to_main;
-    private javax.swing.JLabel driver_name;
     private javax.swing.JLabel driver_pre_rating;
     private javax.swing.ButtonGroup driver_rating;
     private javax.swing.JLabel drop_in;
@@ -281,8 +383,10 @@ public class RideReview extends javax.swing.JFrame {
     private javax.swing.JRadioButton five_star;
     private javax.swing.JRadioButton four_star;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel label123;
     private javax.swing.JLabel name_in;
     private javax.swing.JRadioButton one_star;
+    private javax.swing.JButton rating_confirm;
     private javax.swing.JLabel ride_review;
     private javax.swing.JLabel start_in;
     private javax.swing.JLabel starting_point;
