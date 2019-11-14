@@ -81,6 +81,7 @@ public class TravelPage extends javax.swing.JFrame {
         System.out.println("Reached...1");     
         setResizable(false);
         initComponents();
+        user_msg.setText("You are logged in as " + user_id);
         
         prog_bar.setMaximum(duration+1);
         prog_bar.setMinimum(0);
@@ -138,6 +139,7 @@ public class TravelPage extends javax.swing.JFrame {
         time_el_in = new javax.swing.JLabel();
         time_rem_in = new javax.swing.JLabel();
         prog_bar = new javax.swing.JProgressBar();
+        user_msg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -155,6 +157,8 @@ public class TravelPage extends javax.swing.JFrame {
 
         time_rem.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         time_rem.setText("Time Remaining:");
+
+        user_msg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,6 +194,10 @@ public class TravelPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(prog_bar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(256, 256, 256))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +229,9 @@ public class TravelPage extends javax.swing.JFrame {
                         .addComponent(time_elap))
                     .addComponent(time_rem_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(time_el_in, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(117, 117, 117))
+                .addGap(56, 56, 56)
+                .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         prog_bar.setForeground(Color.GREEN);
@@ -277,5 +287,6 @@ public class TravelPage extends javax.swing.JFrame {
     private javax.swing.JLabel time_rem_in;
     private javax.swing.JLabel to;
     private javax.swing.JLabel to_in;
+    private javax.swing.JLabel user_msg;
     // End of variables declaration//GEN-END:variables
 }

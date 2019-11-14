@@ -32,6 +32,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 });
         setResizable(false);
         initComponents();
+        
     }
 
     /**

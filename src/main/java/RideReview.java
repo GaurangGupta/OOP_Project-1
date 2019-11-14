@@ -51,6 +51,7 @@ public class RideReview extends javax.swing.JFrame {
         driver_name = dri_name;
         duration_in.setText(""+duration);
         fare_in.setText(""+fare);
+        user_msg.setText("You are logged in as " + user_id);
         int new_bal = 0, balance = 0, new_pos = 0;
         
         //get new_pos of driver
@@ -174,6 +175,7 @@ public class RideReview extends javax.swing.JFrame {
         fare_in = new javax.swing.JLabel();
         duration_in = new javax.swing.JLabel();
         rating_confirm = new javax.swing.JButton();
+        user_msg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -269,27 +271,25 @@ public class RideReview extends javax.swing.JFrame {
             }
         });
 
+        user_msg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(back_to_main)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ride_review)
+                .addGap(265, 265, 265))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(one_star)
-                        .addGap(18, 18, 18)
-                        .addComponent(two_star)
-                        .addGap(18, 18, 18)
-                        .addComponent(three_star)
-                        .addGap(18, 18, 18)
-                        .addComponent(four_star)
-                        .addGap(18, 18, 18)
-                        .addComponent(five_star)
-                        .addGap(58, 58, 58)
-                        .addComponent(rating_confirm))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -312,18 +312,26 @@ public class RideReview extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(drop_in, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)))))
-                .addContainerGap(197, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(back_to_main)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112))
+                                .addGap(2, 2, 2))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(one_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(two_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(three_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(four_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(five_star)
+                        .addGap(58, 58, 58)
+                        .addComponent(rating_confirm)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ride_review)
-                .addGap(265, 265, 265))
+                .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,7 +371,9 @@ public class RideReview extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back_to_main)
                     .addComponent(exit))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -556,5 +566,6 @@ public class RideReview extends javax.swing.JFrame {
     private javax.swing.JRadioButton three_star;
     private javax.swing.JLabel trip_duration;
     private javax.swing.JRadioButton two_star;
+    private javax.swing.JLabel user_msg;
     // End of variables declaration//GEN-END:variables
 }

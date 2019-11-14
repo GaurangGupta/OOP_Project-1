@@ -223,6 +223,7 @@ public class Login extends javax.swing.JFrame {
                                         }
                                         balance = myRs.getInt("balance");
                                         p=1;
+                                        JOptionPane.showMessageDialog(null,"Successfully logged in as "+ tname, "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
                                         dispose();
                                         MainFrame main_fr = new MainFrame(tname, balance);
                                         main_fr.setVisible(true);
@@ -281,6 +282,46 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+        
+        //trying to run the refreshing algorithm from main
+//        int tot_trips = 0;
+//        
+//        try{
+//        Class.forName("com.mysql.jdbc.Driver");
+//        Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers","root","root");
+//        Statement myStmt = myConn.createStatement();
+//        String update = "Update driver set cur_pos = initial_pos where cur_status = 0 ";
+//        while(true){
+//        
+//            //            //updating driver location based on total number of trips 
+//            
+////            ResultSet myRs = myStmt.executeQuery("select * from driver");
+////            while(myRs.next())
+////            {
+////		tot_trips+=myRs.getInt("num_trips");
+////            }
+////            
+////            tot_trips-=150;
+////            if(tot_trips%5==0)
+////            {
+////            	String upda="Update driver set cur_pos = initial_pos where cur_status = 0 ";
+////            	myStmt.executeUpdate(upda);
+////            }
+//            
+//            
+//            myStmt.executeUpdate(update);
+////            Thread.sleep(10000);
+//        
+//        
+//        }
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//        }
+
+
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);

@@ -35,6 +35,7 @@ public class BookingScreen extends javax.swing.JFrame {
                 });
         initComponents();
         setResizable(false);
+        user_msg.setText("You are logged in as " + user_id);
         
         try{
             loc_a_drop.setEnabled(false);
@@ -89,6 +90,7 @@ public class BookingScreen extends javax.swing.JFrame {
         loc_h_pick = new javax.swing.JRadioButton();
         loc_g_drop = new javax.swing.JRadioButton();
         loc_h_drop = new javax.swing.JRadioButton();
+        user_msg = new javax.swing.JLabel();
 
         jRadioButton12.setText("Location F");
         jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +259,8 @@ public class BookingScreen extends javax.swing.JFrame {
             }
         });
 
+        user_msg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,8 +291,7 @@ public class BookingScreen extends javax.swing.JFrame {
                                     .addComponent(loc_e_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(loc_f_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(loc_g_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(loc_h_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(book_button))
+                                    .addComponent(loc_h_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(84, 84, 84)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,11 +307,20 @@ public class BookingScreen extends javax.swing.JFrame {
                         .addGap(225, 225, 225)
                         .addComponent(jLabel1)))
                 .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(book_button)
+                        .addGap(306, 306, 306))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
                 .addComponent(jLabel7)
@@ -351,9 +363,11 @@ public class BookingScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loc_h_drop)
                     .addComponent(loc_h_pick))
-                .addGap(42, 42, 42)
+                .addGap(34, 34, 34)
                 .addComponent(book_button)
-                .addGap(72, 72, 72)
+                .addGap(52, 52, 52)
+                .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6))
         );
 
@@ -847,5 +861,6 @@ public class BookingScreen extends javax.swing.JFrame {
     private javax.swing.JRadioButton loc_g_pick;
     private javax.swing.JRadioButton loc_h_drop;
     private javax.swing.JRadioButton loc_h_pick;
+    private javax.swing.JLabel user_msg;
     // End of variables declaration//GEN-END:variables
 }

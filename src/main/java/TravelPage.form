@@ -63,6 +63,11 @@
               <Component id="prog_bar" min="-2" pref="177" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="user_msg" min="-2" pref="611" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -103,7 +108,9 @@
                   <Component id="time_rem_in" min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="time_el_in" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <Component id="user_msg" min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -161,6 +168,11 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="prog_bar.setForeground(Color.GREEN);&#xa;prog_bar.setBackground(Color.GREEN);"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="user_msg">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
