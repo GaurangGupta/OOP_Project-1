@@ -23,7 +23,6 @@ public class BookingScreen extends javax.swing.JFrame {
     Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\map_bg1.jpg");
     public BookingScreen(String user_id) {
         this.user_id = user_id;
-        System.out.println("got this id in booking screen\n" + user_id + "\n");
         this.setContentPane(new JPanel()
                 {
                     @Override
@@ -101,6 +100,7 @@ public class BookingScreen extends javax.swing.JFrame {
         loc_g_drop = new javax.swing.JRadioButton();
         loc_h_drop = new javax.swing.JRadioButton();
         user_msg = new javax.swing.JLabel();
+        cancel = new javax.swing.JButton();
 
         jRadioButton12.setText("Location F");
         jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -271,6 +271,13 @@ public class BookingScreen extends javax.swing.JFrame {
 
         user_msg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        cancel.setText("Cancel");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -285,23 +292,28 @@ public class BookingScreen extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(loc_a_pick)
-                                    .addComponent(loc_b_pick)
-                                    .addComponent(loc_c_pick)
-                                    .addComponent(loc_g_pick)
-                                    .addComponent(loc_h_pick))
-                                .addGap(92, 92, 92)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(loc_c_drop)
-                                    .addComponent(loc_b_drop)
-                                    .addComponent(loc_a_drop)
-                                    .addComponent(jLabel3)
-                                    .addComponent(loc_d_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(loc_e_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(loc_f_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(loc_g_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(loc_h_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(loc_a_pick)
+                                            .addComponent(loc_b_pick)
+                                            .addComponent(loc_c_pick)
+                                            .addComponent(loc_g_pick)
+                                            .addComponent(loc_h_pick))
+                                        .addGap(92, 92, 92)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(loc_c_drop)
+                                            .addComponent(loc_b_drop)
+                                            .addComponent(loc_a_drop)
+                                            .addComponent(jLabel3)
+                                            .addComponent(loc_d_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(loc_e_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(loc_f_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(loc_g_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(loc_h_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(71, 71, 71)
+                                        .addComponent(cancel)))
                                 .addGap(84, 84, 84)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,7 +321,8 @@ public class BookingScreen extends javax.swing.JFrame {
                                     .addComponent(car_suv, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(119, 119, 119)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(book_button)))
                             .addComponent(loc_d_pick)
                             .addComponent(loc_e_pick)
                             .addComponent(loc_f_pick)))
@@ -319,13 +332,8 @@ public class BookingScreen extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(book_button)
-                        .addGap(306, 306, 306))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,9 +381,11 @@ public class BookingScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loc_h_drop)
                     .addComponent(loc_h_pick))
-                .addGap(34, 34, 34)
-                .addComponent(book_button)
-                .addGap(52, 52, 52)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(book_button)
+                    .addComponent(cancel))
+                .addGap(42, 42, 42)
                 .addComponent(user_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6))
@@ -573,9 +583,9 @@ public class BookingScreen extends javax.swing.JFrame {
                 try
                 {
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivers?characterEncoding=latin1","root","root");
+                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
                     Statement myStmt = myConn.createStatement();
-                    ResultSet myRs = myStmt.executeQuery("select * from driver where user_id ='"+user_id+"'");
+                    ResultSet myRs = myStmt.executeQuery("select * from userdata where id ='"+user_id+"'");
                     while(myRs.next())
                     {
                         mo=myRs.getInt("balance");
@@ -806,6 +816,30 @@ public class BookingScreen extends javax.swing.JFrame {
         loc_h_pick.setEnabled(false);
     }//GEN-LAST:event_loc_h_dropActionPerformed
 
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        // TODO add your handling code here:
+        int mo=0;
+                 try
+                {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user?characterEncoding=latin1","root","root");
+                    Statement myStmt = myConn.createStatement();
+                    ResultSet myRs = myStmt.executeQuery("select * from userdata where id ='"+user_id+"'");
+                    while(myRs.next())
+                    {
+                        mo=myRs.getInt("balance");
+                    }
+                    dispose();
+                    MainFrame dp = new MainFrame(user_id,mo);
+                    dp.setVisible(true);
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }
+        
+    }//GEN-LAST:event_cancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -843,6 +877,7 @@ public class BookingScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton book_button;
+    private javax.swing.JButton cancel;
     private javax.swing.JRadioButton car_sedan;
     private javax.swing.JRadioButton car_suv;
     private javax.swing.ButtonGroup car_type_group;
