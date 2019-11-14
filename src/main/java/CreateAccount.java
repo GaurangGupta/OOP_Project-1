@@ -293,6 +293,8 @@ public class CreateAccount extends javax.swing.JFrame {
                         }
                     }
                 }
+                
+                //creating user table in history database
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history","root","root");
                 Statement myStmt1 = myConn.createStatement();

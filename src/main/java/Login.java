@@ -70,7 +70,6 @@ public class Login extends javax.swing.JFrame {
         password_label.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         password_label.setText("Password");
 
-        
 
         login_button.setText("Login");
         login_button.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +206,7 @@ public class Login extends javax.swing.JFrame {
                                     }
                                     if(p==1)
                                     {
-                                        JOptionPane.showMessageDialog(null,"User is alreaady logged in");
+                                        JOptionPane.showMessageDialog(null,"User is already logged in");
                                     }
                                     else
                                     {
