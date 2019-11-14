@@ -57,7 +57,7 @@ public class CreateAccount extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         set_name = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         create_account_label.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         create_account_label.setText("Create Account");

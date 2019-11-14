@@ -139,7 +139,7 @@ public class TravelPage extends javax.swing.JFrame {
         time_rem_in = new javax.swing.JLabel();
         prog_bar = new javax.swing.JProgressBar();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         ongoing_ride_label.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         ongoing_ride_label.setText("Ongoing Ride");

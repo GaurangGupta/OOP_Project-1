@@ -85,7 +85,7 @@ public class AddMoney extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         card_num1 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Enter Amount");

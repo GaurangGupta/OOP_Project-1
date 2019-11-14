@@ -59,7 +59,7 @@ public class Login extends javax.swing.JFrame {
         exit_button = new javax.swing.JButton();
         create_account_button = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         login_title_label.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         login_title_label.setText("Login Page");
@@ -70,6 +70,7 @@ public class Login extends javax.swing.JFrame {
         password_label.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         password_label.setText("Password");
 
+        
 
         login_button.setText("Login");
         login_button.addActionListener(new java.awt.event.ActionListener() {

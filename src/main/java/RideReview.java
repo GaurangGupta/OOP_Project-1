@@ -175,7 +175,7 @@ public class RideReview extends javax.swing.JFrame {
         duration_in = new javax.swing.JLabel();
         rating_confirm = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         ride_review.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         ride_review.setText("Ride Review");
