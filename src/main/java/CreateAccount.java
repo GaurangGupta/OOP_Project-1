@@ -19,7 +19,7 @@ public class CreateAccount extends javax.swing.JFrame {
      * Creates new form CreateAccount
      */
     
-    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\bg1.jpg");
     public CreateAccount() {
         this.setContentPane(new JPanel()
                 {
@@ -297,7 +297,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 
                 //creating user table in history database
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history","root","root");
+                Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history?characterEncoding=latin1","root","root");
                 Statement myStmt1 = myConn.createStatement();
                 myStmt1.executeUpdate("create table "+ user_name +"(pickup varchar(25), dropoff varchar(25), fare int)");
             }

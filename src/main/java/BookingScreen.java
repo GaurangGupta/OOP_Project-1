@@ -20,7 +20,7 @@ public class BookingScreen extends javax.swing.JFrame {
      * Creates new form BookingScreen
      */
     
-    Image img = Toolkit.getDefaultToolkit().getImage("F:\\map.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\map_bg1.jpg");
     public BookingScreen(String user_id) {
         this.user_id = user_id;
         System.out.println("got this id in booking screen\n" + user_id + "\n");
@@ -30,9 +30,19 @@ public class BookingScreen extends javax.swing.JFrame {
                     public void paintComponent(Graphics g)
                 {
                     super.paintComponent(g);
-                    g.drawImage(img, 0, 0, 758, 560, this);
+                    g.drawImage(img, 0, 0, 763, 560, this);
                 }
                 });
+        this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 700, 560, this);
+                }
+                });
+       
         initComponents();
         setResizable(false);
         user_msg.setText("You are logged in as " + user_id);

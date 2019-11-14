@@ -135,7 +135,7 @@ public class RideReview extends javax.swing.JFrame {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             myStmt.executeUpdate("insert into " + user_id + " values('" + start + "', '" + drop + "', " + fare + ")");
         }
@@ -291,6 +291,23 @@ public class RideReview extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+=======
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(one_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(two_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(three_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(four_star)
+                        .addGap(18, 18, 18)
+                        .addComponent(five_star)
+                        .addGap(58, 58, 58)
+                        .addComponent(rating_confirm))
+                    .addGroup(layout.createSequentialGroup()
+>>>>>>> 8c16e73070d42abce8ae0910a7461e74194c4d53
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(starting_point, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

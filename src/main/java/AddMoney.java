@@ -24,7 +24,7 @@ public class AddMoney extends javax.swing.JFrame {
     /**
      * Creates new form AddMoney
      */
-    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\bg1.jpg");
+   
     String user_idd;
     int cur_baa;
   //  public AddMoney() {
@@ -44,6 +44,7 @@ public class AddMoney extends javax.swing.JFrame {
 //    }
     public AddMoney(String user_id,int bal) {
         //System.out.println("HI"+bal);
+        Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\bg1.jpg");
         setResizable(false);this.setContentPane(new JPanel()
                 {
                     @Override
@@ -53,6 +54,16 @@ public class AddMoney extends javax.swing.JFrame {
                     g.drawImage(img, 0, 0, 700, 560, this);
                 }
                 });
+        setResizable(false);
+        this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 700, 560, this);
+                }
+               });
         setResizable(false);
         initComponents();
         cur_baa=bal;
@@ -294,17 +305,26 @@ public class AddMoney extends javax.swing.JFrame {
                             }
                         }
                         int yer=Integer.parseInt(yr);
-                        if(yer<19 || yer>99)
+                        if(yer<19)
+                        {
+                            p=2;
+                        }
+                        else if(yer>99)
                         {
                             p=1;
                         }
                         else if(yer==19 && monn<11)
                         {
-                            p=1;
+                            p=2;
                         }
                         if(p==1)
                         {
                            JOptionPane.showMessageDialog(null,"Please enter a valid year"); 
+                        }
+                        else if(p==2)
+                        {
+                             JOptionPane.showMessageDialog(null,"Your card has expired");
+                             p=1;
                         }
                         else
                         {

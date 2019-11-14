@@ -33,7 +33,7 @@ public class History extends javax.swing.JFrame {
         try{
            
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history?characterEncoding=latin1","root","root");
            
             Statement myStmt = myConn.createStatement();
             ResultSet myRs = myStmt.executeQuery("select * from " + user_id);
