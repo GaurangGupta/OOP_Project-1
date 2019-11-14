@@ -1,6 +1,10 @@
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,12 +20,24 @@ import javax.swing.JOptionPane;
     String user_id, pickup_g, drop_g, driver_name_g;
     int fare_g,dur_g;
     float driver_rating_g;
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\bg1.jpg");
     /**
      * Creates new form DriverPage
      */
     public DriverPage(String user_id, String pickup, String drop, int fare, String driver_name, float driver_rating) {
 
         setResizable(false);
+        this.setContentPane(new JPanel()
+                {
+                    @Override
+                    public void paintComponent(Graphics g)
+                {
+                    super.paintComponent(g);
+                    g.drawImage(img, 0, 0, 700, 580, this);
+                }
+                });
+        setResizable(false);
+       
         initComponents();
         this.user_id = user_id;
         System.out.println("\n" + user_id + "\n");

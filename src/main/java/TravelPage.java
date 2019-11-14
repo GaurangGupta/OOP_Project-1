@@ -78,7 +78,6 @@ public class TravelPage extends javax.swing.JFrame {
 
 
 
-        System.out.println("Reached...1");     
         setResizable(false);
         initComponents();
         
@@ -96,7 +95,6 @@ public class TravelPage extends javax.swing.JFrame {
         time_el_in.setFont(new Font("Serif", Font.PLAIN, 22));
         time_rem_in.setFont(new Font("Serif", Font.PLAIN, 22));
         Timer timer = new Timer();
-        System.out.println("Reached...2");
         TimerTask task = new TimerTask()
         {
             public void run()

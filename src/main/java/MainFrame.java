@@ -20,7 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     String user_id; 
     int balance;
-    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\rushi\\Documents\\NetBeansProjects\\gradleproject1\\map_bg1.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Desktop\\OOP_Project\\bg1.jpg");
    
 //    public MainFrame() {
 //        this.setContentPane(new JPanel()
@@ -44,7 +44,7 @@ public class MainFrame extends javax.swing.JFrame {
                     public void paintComponent(Graphics g)
                 {
                     super.paintComponent(g);
-                    g.drawImage(img, 0, 0, 743, 445, this);
+                    g.drawImage(img, 0, 0, 743, 560, this);
                 }
                 });
         setResizable(false);
@@ -101,6 +101,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        bal_in.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+
         history.setText("Trips Completed");
         history.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +123,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(284, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))

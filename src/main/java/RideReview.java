@@ -134,7 +134,7 @@ public class RideReview extends javax.swing.JFrame {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history","root","root");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/history?characterEncoding=latin1","root","root");
             Statement myStmt = myConn.createStatement();
             myStmt.executeUpdate("insert into " + user_id + " values('" + start + "', '" + drop + "', " + fare + ")");
         }
@@ -277,8 +277,8 @@ public class RideReview extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(one_star)
                         .addGap(18, 18, 18)
                         .addComponent(two_star)
